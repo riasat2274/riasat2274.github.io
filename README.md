@@ -8,7 +8,7 @@
 ---
 
 ## 🧑‍💻 About Me
-I am a **Senior Game Programmer** with **8+ years of experience** developing and optimizing **2D/3D games in Unity**.  
+I am a **Senior Game Programmer** with **10+ years of experience** developing and optimizing **2D/3D games in Unity**.  
 I have contributed to **multiple published hyper-casual titles** with millions of downloads worldwide.  
 
 - 🕹️ Specialized in **Unity C# gameplay programming**  
@@ -22,7 +22,7 @@ I have contributed to **multiple published hyper-casual titles** with millions o
 ## 🛠️ Skills
 - **Programming:** Unity C#, Game AI, Shader Graph, HLSL  
 - **Tools & Workflow:** Git, Trello, Agile/Scrum  
-- **Monetization:** Ad Networks, IAP systems  
+- **Monetization:** Ad Networks, IAP systems, Analytics
 - **Deployment:** Android & iOS builds, SDK implementation  
 - **Soft Skills:** Communication, Problem Solving, Team Collaboration  
 
