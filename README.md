@@ -1,5 +1,5 @@
 # 🎮 Riasat Azim Khan  
-**Senior Game Programmer | Unity Specialist | Hyper-Casual & Mobile Games**
+**Senior Game Programmer | Unity Specialist | Hyper-Casual, Casual, Mid-core & Mobile Games**
 
 📍 Dhaka, Bangladesh  
 📧 riasat2274@gmail.com | 📞 +8801921534874  
@@ -57,10 +57,10 @@ North South University, Dhaka (2011 – 2014)
 ---
 
 ## 📬 Contact
-💼 Open to opportunities in **Europe & Global Remote**  
+💼 Open to opportunities in **Global Remote/On-Site/Relocate**  
 - 📧 Email: riasat2274@gmail.com  
 - 🔗 [LinkedIn](https://www.linkedin.com/in/riasatazimkhan2274)  
-- 🌍 [Portfolio Website](#)  
+- 🌍 [Portfolio Website](https://www.youtube.com/playlist?list=PLex3x59cEp1x8ZJJiBUzWi0GpRDISmCcP)  
 
 ---
 ✨ _“Building fun and optimized gameplay experiences that players love.”_
