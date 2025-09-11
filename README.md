@@ -3,7 +3,7 @@
 
 📍 Dhaka, Bangladesh  
 📧 riasat2274@gmail.com | 📞 +8801921534874  
-🔗 [LinkedIn](https://www.linkedin.com/in/riasatazimkhan2274) | [Portfolio Website](#) | [Itch.io](#)  
+🔗 [LinkedIn](https://www.linkedin.com/in/riasatazimkhan2274) | [Portfolio Videos](https://www.youtube.com/playlist?list=PLex3x59cEp1x8ZJJiBUzWi0GpRDISmCcP)  
 
 ---
 
