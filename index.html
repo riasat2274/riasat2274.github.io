@@ -122,11 +122,83 @@
       </p>
     </section>
 
+    <!-- Skills & Highlights Section -->
+<section id="highlights-skills" style="max-width:1000px;margin:2rem auto;padding:0 1rem;">
+  <style>
+    /* simple, self-contained styles for this block */
+    #highlights-skills { font-family: Arial, Helvetica, sans-serif; color:#222; }
+    .hs-grid { display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem; align-items:start; }
+    @media (max-width:700px){ .hs-grid { grid-template-columns: 1fr; } }
+
+    .highlights { background:#fff;padding:1.2rem;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+    .highlights ul { list-style:none;padding:0;margin:0; }
+    .highlights li { margin:0.65rem 0; line-height:1.45; font-size:15px; }
+    .highlights li span.emoji { margin-right:0.6rem;font-size:18px;vertical-align:middle; }
+
+    .skills { background:#fff;padding:1.2rem;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+    .skills h3 { margin:0 0 0.6rem 0; font-size:18px; border-bottom:0; }
+    .skill-group { margin-bottom:0.9rem; }
+    .skill-group strong { display:inline-block; width:140px; font-weight:700; }
+    .skill-group span { color:#444; }
+
+    /* small visual flourish */
+    .divider { height:4px; width:48px; background:#222; margin:0.6rem 0 1rem 0; border-radius:2px; }
+  </style>
+
+  <div class="hs-grid">
+    <!-- Left: Highlight bullets -->
+    <div class="highlights" aria-labelledby="highlights-title">
+      <h2 id="highlights-title" style="margin:0 0 0.4rem 0;font-size:20px;">Core Strengths</h2>
+      <div class="divider" aria-hidden="true"></div>
+      <ul>
+        <li><span class="emoji">🕹️</span><strong>Specialized in</strong> <em>Unity C# gameplay programming</em></li>
+        <li><span class="emoji">⚡</span><strong>Strong in</strong> <em>performance optimization &amp; cross-platform deployment</em></li>
+        <li><span class="emoji">📲</span><strong>Experienced in</strong> <em>SDK integrations, ad monetization &amp; in-app purchases</em></li>
+        <li><span class="emoji">🎨</span><strong>Skilled with</strong> <em>custom shaders (Shader Graph, HLSL) &amp; VFX</em></li>
+        <li><span class="emoji">🤝</span><strong>Collaborative</strong> &amp; Agile team player</li>
+      </ul>
+    </div>
+
+    <!-- Right: Skills grouped -->
+    <div class="skills" aria-labelledby="skills-title">
+      <h2 id="skills-title" style="margin:0 0 0.4rem 0;font-size:20px;">Skills</h2>
+      <div class="divider" aria-hidden="true"></div>
+
+      <div class="skill-group">
+        <strong>Programming:</strong>
+        <span>Unity C#, C++, Shader Graph, HLSL</span>
+      </div>
+
+      <div class="skill-group">
+        <strong>Tools &amp; Workflow:</strong>
+        <span>Git, Trello, Agile / Scrum</span>
+      </div>
+
+      <div class="skill-group">
+        <strong>Monetization:</strong>
+        <span>Ad Networks, IAP systems, Analytics</span>
+      </div>
+
+      <div class="skill-group">
+        <strong>Deployment:</strong>
+        <span>Android &amp; iOS builds, SDK implementation</span>
+      </div>
+
+      <div class="skill-group">
+        <strong>Soft Skills:</strong>
+        <span>Communication, Problem Solving, Team Collaboration</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    
     <section id="projects">
       <h2>Featured Projects</h2>
       <div class="projects">
         <div class="project-card">
-          <icon src="images/PrankMasterIcon.png" alt="Prank Master 3D" />
+          <img src="images/PrankMasterIcon.png" alt="Prank Master 3D" />
           <div class="content">
             <h3>Prank Master 3D</h3>
             <p>Choice-based puzzle game published by Lion Studios. <br><strong>Role:</strong> Core gameplay, shaders, effects.</p>
@@ -134,7 +206,7 @@
           </div>
         </div>
         <div class="project-card">
-          <icon src="images/PawnShopMasterIcon.png" alt="Pawn Shop Master" />
+          <img src="images/PawnShopMasterIcon.png" alt="Pawn Shop Master" />
           <div class="content">
             <h3>Pawn Shop Master</h3>
             <p>Shop management simulation game. <br><strong>Role:</strong> Core gameplay loop, AI, effects.</p>
