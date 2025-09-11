@@ -41,6 +41,7 @@ A shop management simulation game.
 ### 🚂 Red Rail Redemption *(Kolpoverse Studios)*  
 A rail shooter game on a moving train.  
 **My Role:** Shooting mechanics, enemy AI, camera, lighting, SDKs  
+![Red Rail Screenshot](link-to-image)  
 
 ### 🩺 War Medic *(Kolpoverse Studios)*  
 Arcade-style rescue game where players save wounded soldiers under fire.  
