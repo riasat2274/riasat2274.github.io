@@ -69,6 +69,14 @@
     width: 70%;
     height: auto;
     }
+    .icon {
+      width: 60px;       /* size of the icon */
+      height: 60px;
+      object-fit: cover; /* keeps aspect ratio */
+      border-radius: 8px; /* makes it round square, remove if you want square */
+      display: block;
+      margin: 0 auto 1rem; /* centers it and adds spacing below */
+    }
     .project-card .content {
       padding: 1rem;
     }
@@ -105,10 +113,7 @@
       <a href="#contact">Contact</a>
     </nav>
   </header>
-  <div class="project-card">
-  <img src="images/HeaderImage.jpeg" alt="Header Image" />
-</div>
-
+  
   <div class="container">
     <section id="about">
       <h2>About Me</h2>
@@ -121,7 +126,7 @@
       <h2>Featured Projects</h2>
       <div class="projects">
         <div class="project-card">
-          <img src="images/PrankMasterIcon.png" alt="Prank Master 3D" />
+          <icon src="images/PrankMasterIcon.png" alt="Prank Master 3D" />
           <div class="content">
             <h3>Prank Master 3D</h3>
             <p>Choice-based puzzle game published by Lion Studios. <br><strong>Role:</strong> Core gameplay, shaders, effects.</p>
@@ -129,7 +134,7 @@
           </div>
         </div>
         <div class="project-card">
-          <img src="images/PawnShopMasterIcon.png" alt="Pawn Shop Master" />
+          <icon src="images/PawnShopMasterIcon.png" alt="Pawn Shop Master" />
           <div class="content">
             <h3>Pawn Shop Master</h3>
             <p>Shop management simulation game. <br><strong>Role:</strong> Core gameplay loop, AI, effects.</p>
