@@ -1,5 +1,5 @@
 # 🎮 Riasat Azim Khan  
-**Senior Game Programmer | Unity Specialist | Hyper-Casual, Casual, Mid-core & Mobile Games**
+**Senior Game Programmer | Unity Specialist | Hyper-Casual, Casual & Mid-core Mobile Games**
 
 📍 Dhaka, Bangladesh  
 📧 riasat2274@gmail.com | 📞 +8801921534874  
@@ -20,7 +20,7 @@ I have contributed to **multiple published hyper-casual titles** with millions o
 ---
 
 ## 🛠️ Skills
-- **Programming:** Unity C#, Game AI, Shader Graph, HLSL  
+- **Programming:** Unity C#, C++, Shader Graph, HLSL  
 - **Tools & Workflow:** Git, Trello, Agile/Scrum  
 - **Monetization:** Ad Networks, IAP systems, Analytics
 - **Deployment:** Android & iOS builds, SDK implementation  
