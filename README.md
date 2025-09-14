@@ -30,24 +30,16 @@ I have contributed to **multiple published hyper-casual titles** with millions o
 
 ## 🚀 Featured Projects
 
-### 🔫 [Prank Master 3D](https://play.google.com/store/apps/details?id=com.alphapotato.prankster&hl=en&gl=US) (Lion Studios)  
+### 🔫 [Prank Master 3D](https://play.google.com/store/apps/details?id=com.alphapotato.prankster&hl=en&gl=US) (Lion Studios, 50M+)  
 A choice-based puzzle game where the player sets up funny pranks.  
 **My Role:** Core gameplay, VFX, shaders  
 
-### 🛒 [Pawn Shop Master](https://play.google.com/store/apps/details?id=com.alphapotato.pawnshopmaster&hl=en&gl=US)  
+### 🛒 [Pawn Shop Master](https://play.google.com/store/apps/details?id=com.alphapotato.pawnshopmaster&hl=en&gl=US) (Lion Studios, 50M+) 
 A shop management simulation game.  
 **My Role:** Core gameplay loop, NPC AI, effects, lighting  
 
-### 🚂 Red Rail Redemption *(Kolpoverse Studios)*  
-A rail shooter game on a moving train.  
-**My Role:** Shooting mechanics, enemy AI, camera, lighting, SDKs  
-![Red Rail Screenshot](link-to-image)  
 
-### 🩺 War Medic *(Kolpoverse Studios)*  
-Arcade-style rescue game where players save wounded soldiers under fire.  
-**My Role:** War simulation, AI, movement, upgrades, shaders  
-
-🎥 [More Gameplay Videos on YouTube](https://www.youtube.com/@yourchannel)  
+🎥 [More Gameplay Videos on YouTube](https://www.youtube.com/playlist?list=PLex3x59cEp1x8ZJJiBUzWi0GpRDISmCcP)  
 
 ---
 
@@ -61,7 +53,7 @@ North South University, Dhaka (2011 – 2014)
 💼 Open to opportunities in **Global Remote/On-Site/Relocate**  
 - 📧 Email: riasat2274@gmail.com  
 - 🔗 [LinkedIn](https://www.linkedin.com/in/riasatazimkhan2274)  
-- 🌍 [Portfolio Website](https://www.youtube.com/playlist?list=PLex3x59cEp1x8ZJJiBUzWi0GpRDISmCcP)  
+- 🌍 [Portfolio Website](https://riasat2274.github.io/)  
 
 ---
 ✨ _“Building fun and optimized gameplay experiences that players love.”_
