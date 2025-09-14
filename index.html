@@ -1,267 +1,271 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Riasat Azim Khan - Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Game Developer — Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background: #222;
-      color: #fff;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    header p {
-      margin: 0.5rem 0 0;
-    }
-    nav {
-      margin-top: 1rem;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 0.5rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      margin-bottom: 3rem;
-    }
-    h2 {
-      border-bottom: 2px solid #222;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-    }
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-    .project-card {
-      background: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-5px);
-    }
-    .project-card img {
-    display: block;
-    margin: 0 auto;
-    width: 70%;
-    height: auto;
-    }
-    .project-card icon {
-      width: 60px;       /* size of the icon */
-      height: 60px;
-      object-fit: cover; /* keeps aspect ratio */
-      border-radius: 8px; /* makes it round square, remove if you want square */
-      display: block;
-      margin: 0 auto 1rem; /* centers it and adds spacing below */
-    }
-    .project-card .content {
-      padding: 1rem;
-    }
-    .project-card h3 {
-      margin: 0 0 0.5rem;
-    }
-    .project-card a {
-      color: #0066cc;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #222;
-      color: #fff;
-    }
-    footer a {
-      color: #fff;
-      margin: 0 0.5rem;
-      text-decoration: none;
-    }
+    .glass { background: rgba(255,255,255,0.6); backdrop-filter: blur(6px); }
+    .screenshot { aspect-ratio: 9/16; object-fit: cover; border-radius: .5rem; }
+    /* Custom text colors for CTA */
+    #contactCtaLinkedIn { color: #0a66c2; border-color: #0a66c2; }
+    #contactCtaLinkedIn:hover { background: #0a66c2; color: white; }
+    #contactCtaContact { color: #16a34a; border-color: #16a34a; }
+    #contactCtaContact:hover { background: #16a34a; color: white; }
   </style>
 </head>
-<body>
-
-  
-  <header>
-    <h1>Riasat Azim Khan</h1>
-    <p>Senior Game Programmer | Unity Specialist | Hyper-Casual, Casual & Mid-core Mobile Games</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+<body class="bg-slate-50 text-slate-800 antialiased">
+  <header class="bg-white/80 glass sticky top-0 z-30 shadow-sm">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-md bg-gradient-to-tr from-indigo-500 to-pink-500 flex items-center justify-center text-white font-bold">MD</div>
+        <div>
+          <div id="ownerName" class="font-semibold">Your Name</div>
+          <div id="ownerRole" class="text-xs text-slate-600">Mobile Developer — Flutter / React Native / Native</div>
+        </div>
+      </div>
+      <nav class="hidden md:flex gap-4 text-sm">
+        <a href="#projects" class="hover:underline">Projects</a>
+        <a href="#skills" class="hover:underline">Skills</a>
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+      </nav>
+      <div class="md:hidden">
+        <button id="menuBtn" class="px-3 py-1 border rounded">Menu</button>
+      </div>
+    </div>
   </header>
-  
-  <div class="container">
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I am a Senior Game Programmer with 10+ years of experience in Unity (C#), specializing in 2D/3D game development, optimization, and deployment across Android and iOS. I have contributed to multiple published hyper-casual titles with millions of downloads worldwide. Skilled in gameplay programming, AI, shaders, monetization systems, and performance tuning.
+
+  <main class="max-w-5xl mx-auto px-4 py-8">
+    <!-- HERO -->
+    <section class="grid md:grid-cols-2 gap-6 items-center">
+      <div>
+        <h1 id="heroTitle" class="text-3xl md:text-4xl font-extrabold leading-tight">Hi — I'm <span class="text-indigo-600">Your Name</span></h1>
+        <p id="heroSubtitle" class="mt-3 text-slate-600">I build blah blah.</p>
+
+        <div class="mt-6 flex gap-3">
+          <a id="downloadCv" href="resume.pdf" class="px-4 py-2 rounded-md bg-indigo-600 text-white text-sm shadow">Download CV</a>
+          <a id="contactCtaLinkedIn" href="https://www.linkedin.com/in/riasatazimkhan2274" class="px-4 py-2 rounded-md border text-sm">LinkedIn</a>
+          <a id="contactCtaContact" href="#contact" class="px-4 py-2 rounded-md border text-sm">Contact</a>
+        </div>
+
+        <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 text-sm text-slate-700">
+          <div class="bg-white p-3 rounded shadow-sm">
+            <div class="text-xs text-slate-500">Primary Tech</div>
+            <div id="primaryTech" class="font-medium">Flutter, Dart</div>
+          </div>
+          <div class="bg-white p-3 rounded shadow-sm">
+            <div class="text-xs text-slate-500">Platforms</div>
+            <div id="platforms" class="font-medium">iOS, Android</div>
+          </div>
+          <div class="bg-white p-3 rounded shadow-sm">
+            <div class="text-xs text-slate-500">Availability</div>
+            <div id="availability" class="font-medium">Open to work</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden md:block">
+        <div class="w-full h-full rounded-lg shadow-lg overflow-hidden">
+          <img id="heroMock" src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=abc" alt="app mockup" class="w-full h-96 object-cover">
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="mt-12">
+      <div class="flex items-center justify-between">
+        <h2 class="text-2xl font-bold">Selected Projects</h2>
+        <div class="text-sm text-slate-500">Projects show role, tech, and links.</div>
+      </div>
+
+      <div id="projectsGrid" class="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
+
+      <!-- YOUTUBE SHOWCASE -->
+      <div id="youtubeShowcase" class="mt-12 space-y-6"></div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="mt-12">
+      <h2 class="text-2xl font-bold">Skills & Tech</h2>
+      <p class="mt-2 text-slate-600">Languages, frameworks, and tools I use daily.</p>
+      <div id="skillsList" class="mt-4 flex flex-wrap gap-2"></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="mt-12 bg-white p-6 rounded shadow-sm">
+      <h2 class="text-xl font-bold">About Me</h2>
+      <p id="aboutText" class="mt-3 text-slate-700">
+        I specialize in making 3d/2d games using the UNITY game engine. With experience over 10 years I have  Two Published Titles under my belt. I focus not only on high quality games but also optimizing the development process. 
+        I am Well acquainted with SDK deployments, Ad networks deployments, performance optimisation, custom shaders using shader graphs, HLSL and Particle effects. 
+        I emphasize effective communications for better task management. I also love contributing to game design.
       </p>
     </section>
 
-    <!-- Skills & Highlights Section -->
-<section id="highlights-skills" style="max-width:1000px;margin:2rem auto;padding:0 1rem;">
-  <style>
-    /* simple, self-contained styles for this block */
-    #highlights-skills { font-family: Arial, Helvetica, sans-serif; color:#222; }
-    .hs-grid { display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem; align-items:start; }
-    @media (max-width:700px){ .hs-grid { grid-template-columns: 1fr; } }
+    <!-- CONTACT -->
+    <section id="contact" class="mt-8">
+      <h2 class="text-2xl font-bold">Get in touch</h2>
+      <p class="mt-2 text-slate-600">Email, links, or a short contact form below.</p>
 
-    .highlights { background:#fff;padding:1.2rem;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.06); }
-    .highlights ul { list-style:none;padding:0;margin:0; }
-    .highlights li { margin:0.65rem 0; line-height:1.45; font-size:15px; }
-    .highlights li span.emoji { margin-right:0.6rem;font-size:18px;vertical-align:middle; }
+      <div class="mt-4 grid md:grid-cols-2 gap-6">
+        <div class="bg-white p-4 rounded shadow-sm">
+          <div class="text-sm text-slate-500">Email</div>
+          <div id="contactEmail" class="font-medium">you@example.com</div>
 
-    .skills { background:#fff;padding:1.2rem;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.06); }
-    .skills h3 { margin:0 0 0.6rem 0; font-size:18px; border-bottom:0; }
-    .skill-group { margin-bottom:0.9rem; }
-    .skill-group strong { display:inline-block; width:140px; font-weight:700; }
-    .skill-group span { color:#444; }
+          <div class="mt-4 text-sm text-slate-500">Location</div>
+          <div id="contactLocation" class="font-medium">Dhaka, Bangladesh</div>
 
-    /* small visual flourish */
-    .divider { height:4px; width:48px; background:#222; margin:0.6rem 0 1rem 0; border-radius:2px; }
-  </style>
-
-  <div class="hs-grid">
-    <!-- Left: Highlight bullets -->
-    <div class="highlights" aria-labelledby="highlights-title">
-      <h2 id="highlights-title" style="margin:0 0 0.4rem 0;font-size:20px;">Core Strengths</h2>
-      <div class="divider" aria-hidden="true"></div>
-      <ul>
-        <li><span class="emoji">🕹️</span><strong>Specialized in</strong> <em>Unity C# gameplay programming</em></li>
-        <li><span class="emoji">⚡</span><strong>Strong in</strong> <em>performance optimization &amp; cross-platform deployment</em></li>
-        <li><span class="emoji">📲</span><strong>Experienced in</strong> <em>SDK integrations, ad monetization &amp; in-app purchases</em></li>
-        <li><span class="emoji">🎨</span><strong>Skilled with</strong> <em>custom shaders (Shader Graph, HLSL) &amp; VFX</em></li>
-        <li><span class="emoji">🤝</span><strong>Collaborative</strong> &amp; Agile team player</li>
-      </ul>
-    </div>
-
-    <!-- Right: Skills grouped -->
-    <div class="skills" aria-labelledby="skills-title">
-      <h2 id="skills-title" style="margin:0 0 0.4rem 0;font-size:20px;">Skills</h2>
-      <div class="divider" aria-hidden="true"></div>
-
-      <div class="skill-group">
-        <strong>Programming:</strong>
-        <span>Unity C#, C++, Shader Graph, HLSL</span>
-      </div>
-
-      <div class="skill-group">
-        <strong>Tools &amp; Workflow:</strong>
-        <span>Git, Trello </span>
-      </div>
-
-      <div class="skill-group">
-        <strong>Monetization:</strong>
-        <span>Ad Networks, IAP systems, Analytics</span>
-      </div>
-
-      <div class="skill-group">
-        <strong>Deployment:</strong>
-        <span>Android &amp; iOS builds, SDK implementation</span>
-      </div>
-
-      <div class="skill-group">
-        <strong>Soft Skills:</strong>
-        <span>Communication, Problem Solving, Team Collaboration</span>
-      </div>
-    </div>
-  </div>
-</section>
-    
-    <section id="projects">
-      <h2>Featured Projects</h2>
-      <div class="projects">
-        <div class="project-card">
-          <img src="images/PrankMasterIcon.png" alt="Prank Master 3D" />
-          <div class="content">
-            <h3>Prank Master 3D</h3>
-            <p>Choice-based puzzle game. Published by Lion Studios. <br><strong>Role:</strong> Core gameplay, shaders, effects.</p>
-            <a href="https://play.google.com/store/apps/details?id=com.alphapotato.prankster">View on Play Store</a>
-          </div>
-        </div>
-        <div class="project-card">
-          <img src="images/PawnShopMasterIcon.png" alt="Pawn Shop Master" />
-          <div class="content">
-            <h3>Pawn Shop Master</h3>
-            <p>Shop management simulation game.Published by Lion Studios. <br><strong>Role:</strong> Core gameplay loop, NPC, effects.</p>
-            <a href="https://play.google.com/store/apps/details?id=com.alphapotato.pawnshopmaster">View on Play Store</a>
+          <div class="mt-4 flex gap-3">
+            <a id="linkPlay" class="text-sm underline" href="#">Play Store</a>
+            <a id="linkApp" class="text-sm underline" href="#">App Store</a>
+            <a id="linkGithub" class="text-sm underline" href="#">GitHub</a>
           </div>
         </div>
 
+        <form id="contactForm" class="bg-white p-4 rounded shadow-sm" onsubmit="event.preventDefault(); alert('Form submission disabled in template — replace with your endpoint or email service');">
+          <label class="text-sm">Name</label>
+          <input class="w-full mt-1 p-2 border rounded" placeholder="Your name" />
+          <label class="text-sm mt-3">Email</label>
+          <input class="w-full mt-1 p-2 border rounded" placeholder="Your email" />
+          <label class="text-sm mt-3">Message</label>
+          <textarea class="w-full mt-1 p-2 border rounded" rows="4" placeholder="Hi — I'm interested in..."></textarea>
+          <div class="mt-3">
+            <button class="px-3 py-2 bg-indigo-600 text-white rounded">Send message</button>
+          </div>
+        </form>
+      </div>
     </section>
 
-    <section id="Showcase">
-      <h2>Some of my Other Projects</h2>
-        <div class="project-card">
-          <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/6gzO7aGJLsY?si=jPUDkDU8t8oqpvpW" 
-            title="Game Showcase 2022" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>            
-            </iframe>
-          <div class="content">
-          </div>
-        </div>
-        
-        <div class="project-card">
-          <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/6iaRr3DIsJE?si=_UPYgj1MpVvr8pkA" 
-            title="Game Showcase 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>            
-            </iframe>
-          <div class="content">
-          </div>
-        </div>
+    <footer class="mt-12 text-center text-sm text-slate-500">© <span id="footerYear"></span> Your Name — Mobile Developer</footer>
+  </main>
 
-       <div class="project-card">
-          <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/7DnxHbzCLWI?si=cAHIraasQKbzAsjq" 
-            title="Game Showcase 2024" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>            
-            </iframe>
-          <div class="content">
-          </div>
-        </div>
-    </section>
+  <!-- DATA + renderer -->
+  <script id="data">
+  const DATA = {
+    owner: {
+      name: "Riasat Azim Khan ",
+      role: "Senior Game Programmer | Unity Specialist | Hyper-Casual, Casual & Mid-core Mobile Games",
+      primaryTech: "Unity, C#, C++, Shadergraph, HLSL, Particles",
+      platforms: "iOS, Android",
+      availability: "Open to work",
+      email: "riasat2274@gmail.com",
+      location: "Dhaka, Bangladesh",
+      heroImage: "images/pp.png",
+    },
+    skills: ["Unity", "C#", "C++","Performance Optimization", "Ads & IAP", "SDK", "Git", "Analytics", "Deployment" ],
+    projects: [
+      {
+        title: "Prank Master 3D",
+        role: "Core Gameplay, Shaders, Effects",
+        platform: "Android / iOS",
+        tech: ["Unity", "C#"],
+        description: "Choice-based puzzle game. Published by Lion Studios.",
+        screenshots: ["https://via.placeholder.com/400x800.png?text=ShopEase+1","https://via.placeholder.com/400x800.png?text=ShopEase+2"],
+        playStoreUrl: "https://play.google.com/store/apps/details?id=com.alphapotato.prankster",
+        appStoreUrl: "https://apps.apple.com/us/app/prank-master-3d/id1528127833",
+        demoUrl: "#",
+        metrics: { downloads: "50M+", rating: "4.6" }
+      },
+      {
+        title: "Pawn Shop Master",
+        role: "Core Gameplay loop, NPC, Visual Effects",
+        platform: "Android / iOS",
+        tech: ["Unity", "C#"],
+        description: "Shop management simulation game.Published by Lion Studios.",
+        screenshots: ["https://via.placeholder.com/400x800.png?text=FitPulse"],
+        playStoreUrl: "https://play.google.com/store/apps/details?id=com.alphapotato.pawnshopmaster",
+        appStoreUrl: "https://apps.apple.com/us/app/pawn-shop-master/id1511472595",
+        demoUrl: "#",
+        metrics: { downloads: "10M+", rating: "4.4" }
+      }
+    ],
+    // New separate showcase array
+    showcaseVideos: [
+      { title: "Gameplay Showcase 2022", url: "https://www.youtube.com/embed/6gzO7aGJLsY?si=jPUDkDU8t8oqpvpW" },
+      { title: "Gameplay Showcase 2023", url: "https://www.youtube.com/embed/6iaRr3DIsJE?si=_UPYgj1MpVvr8pkA" },
+      { title: "Gameplay Showcase 2024", url: "https://www.youtube.com/embed/7DnxHbzCLWI?si=cAHIraasQKbzAsjq" }
+    ]
+  };
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        📧 <a href="mailto:riasat2274@gmail.com">riasat2274@gmail.com</a><br>
-        🔗 <a href="https://www.linkedin.com/in/riasatazimkhan2274">LinkedIn</a><br>
-        📄 <a href="resume.pdf">Download Resume</a>
-      </p>
-    </section>
-  </div>
-  
-  <footer>
-    <p>© 2025 Riasat Azim Khan</p>
-    <a href="#about">About</a> |
-    <a href="#projects">Projects</a> |
-    <a href="#contact">Contact</a>
-  </footer>
+  document.getElementById('ownerName').innerText = DATA.owner.name;
+document.getElementById('ownerRole').innerText = DATA.owner.role;
+document.getElementById('heroTitle').innerHTML = `Hi — I'm <span class="text-indigo-600">${DATA.owner.name.split(' ')[0]}</span>`;
+document.getElementById('heroSubtitle').innerText = `I build delightful, enjoyable and performant mobile games. My focus is on Core Gameplay, Game feel and Visual Effects using ${DATA.owner.primaryTech}.`;
+document.getElementById('primaryTech').innerText = DATA.owner.primaryTech;
+document.getElementById('platforms').innerText = DATA.owner.platforms;
+document.getElementById('availability').innerText = DATA.owner.availability;
+document.getElementById('heroMock').src = DATA.owner.heroImage;
+document.getElementById('contactEmail').innerText = DATA.owner.email;
+document.getElementById('contactLocation').innerText = DATA.owner.location;
+document.getElementById('footerYear').innerText = new Date().getFullYear();
+document.getElementById('linkPlay').href = DATA.projects[0]?.playStoreUrl || '#';
+document.getElementById('linkApp').href = DATA.projects[0]?.appStoreUrl || '#';
+document.getElementById('linkGithub').href = '#';
+document.getElementById('menuBtn').addEventListener('click', () => {
+  alert('Mobile menu — this template uses a simple header. For a real menu, replace this with a drawer or nav.');
+});
+
+// Render skills
+const skillsList = document.getElementById('skillsList');
+DATA.skills.forEach(s => {
+  const el = document.createElement('div');
+  el.className = 'px-3 py-1 bg-white rounded border text-sm';
+  el.innerText = s;
+  skillsList.appendChild(el);
+});
+
+
+
+
+  // Render projects
+  const projectsGrid = document.getElementById('projectsGrid');
+  DATA.projects.forEach(p => {
+    const card = document.createElement('article');
+    card.className = 'bg-white rounded-lg shadow-sm overflow-hidden';
+    card.innerHTML = `
+      <div class="p-4">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <h3 class="font-semibold text-lg">${p.title}</h3>
+            <div class="text-sm text-slate-500">${p.role} • ${p.platform}</div>
+          </div>
+          <div class="text-sm text-slate-700 font-medium">${p.metrics?.downloads ?? ''}</div>
+        </div>
+        <p class="mt-3 text-slate-600 text-sm">${p.description}</p>
+        <div class="mt-3 flex gap-2 flex-wrap">
+          ${p.tech.map(t => `<span class="text-xs px-2 py-1 border rounded">${t}</span>`).join('')}
+        </div>
+        <div class="mt-3 flex gap-2 items-center">
+          ${p.playStoreUrl ? `<a class="text-xs underline" href="${p.playStoreUrl}">Google Play</a>` : ''}
+          ${p.appStoreUrl ? `<a class="text-xs underline" href="${p.appStoreUrl}">App Store</a>` : ''}
+          ${p.demoUrl ? `<a class="text-xs underline" href="${p.demoUrl}">Demo</a>` : ''}
+          ${p.metrics?.rating ? `<div class="ml-auto text-sm text-slate-500">⭐ ${p.metrics.rating}</div>` : ''}
+        </div>
+      </div>
+      ${p.screenshots?.length ? `
+        <div class="p-3 bg-slate-50 border-t">
+          <div class="flex gap-2 overflow-x-auto p-1">
+            ${p.screenshots.map(s => `<img src="${s}" class="w-28 h-56 object-cover rounded"/>`).join('')}
+          </div>
+        </div>` : ''}
+    `;
+    projectsGrid.appendChild(card);
+  });
+
+  // Render showcase videos
+  const youtubeShowcase = document.getElementById('youtubeShowcase');
+  DATA.showcaseVideos.forEach(v => {
+    const div = document.createElement('div');
+    div.innerHTML = `
+      <h3 class="text-lg font-semibold mt-6">${v.title}</h3>
+      <div class="aspect-video w-full rounded overflow-hidden shadow">
+        <iframe width="100%" height="400" src="${v.url}" title="${v.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    `;
+    youtubeShowcase.appendChild(div);
+  });
+</script>
+
 </body>
 </html>
