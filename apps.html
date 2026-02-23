@@ -77,59 +77,81 @@ h1 {
 <div class="grid" id="appGrid"></div>
 
 <script>
-const appLinks = [
-"https://play.google.com/store/apps/details?id=com.kolpoverse.holejam",
-"https://play.google.com/store/apps/details?id=com.kolpoverse.goodstapjam",
-"https://play.google.com/store/apps/details?id=com.kolpoverse.colorslidejam",
-"https://play.google.com/store/apps/details?id=com.kolpoverse.restaurantjam",
-"https://play.google.com/store/apps/details?id=com.kolpoverse.redrailredemption",
-"https://play.google.com/store/apps/details?id=com.kolpoverse.chainsquad",
-"https://play.google.com/store/apps/details?id=com.kolpoverse.armoredassembly",
-"https://play.google.com/store/apps/details?id=com.kolpoverse.actiontower",
-"https://play.google.com/store/apps/details?id=com.kolpoverse.chaossoldier",
-"https://play.google.com/store/apps/details?id=com.kolpoverse.luggageunblockfrenzy",
-"https://play.google.com/store/apps/details?id=com.kolpoverse.jellybuildjam",
-"https://play.google.com/store/apps/details?id=com.kolpoverse.trayslidemerge",
-"https://play.google.com/store/apps/details?id=com.alphapotato.prankster",
-"https://play.google.com/store/apps/details?id=com.alphapotato.pawnshopmaster"
+const apps = [
+{
+title: "Hole Jam",
+icon: "images/apps/holejam.png",
+link: "https://play.google.com/store/apps/details?id=com.kolpoverse.holejam"
+},
+{
+title: "Goods Tap Jam",
+icon: "images/apps/goodstapjam.png",
+link: "https://play.google.com/store/apps/details?id=com.kolpoverse.goodstapjam"
+},
+{
+title: "Color Slide Jam",
+icon: "images/apps/colorslidejam.png",
+link: "https://play.google.com/store/apps/details?id=com.kolpoverse.colorslidejam"
+},
+{
+title: "Restaurant Jam",
+icon: "images/apps/restaurantjam.png",
+link: "https://play.google.com/store/apps/details?id=com.kolpoverse.restaurantjam"
+},
+{
+title: "Red Rail Redemption",
+icon: "images/apps/redrailredemption.png",
+link: "https://play.google.com/store/apps/details?id=com.kolpoverse.redrailredemption"
+},
+{
+title: "chain Squad",
+icon: "images/apps/chainsquad.png",
+link: "https://play.google.com/store/apps/details?id=com.kolpoverse.chainsquad"
+},
+{
+title: "Armoured Assembly",
+icon: "images/apps/armoredassembly.png",
+link: "https://play.google.com/store/apps/details?id=com.kolpoverse.armoredassembly"
+},
+{
+title: "Action Tower",
+icon: "images/apps/actiontower.png",
+link: "https://play.google.com/store/apps/details?id=com.kolpoverse.actiontower"
+},
+{
+title: "Chaos Soldier",
+icon: "images/apps/chaossoldier.png",
+link: "https://play.google.com/store/apps/details?id=com.kolpoverse.chaossoldier"
+},
+{
+title: "Luggage Unblock Frenzy",
+icon: "images/apps/luggageunblockfrenzy.png",
+link: "https://play.google.com/store/apps/details?id=com.kolpoverse.luggageunblockfrenzy"
+},
+{
+title: "Jelly Build Jam",
+icon: "images/apps/jellybuildjam.png",
+link: "https://play.google.com/store/apps/details?id=com.kolpoverse.jellybuildjam"
+},
+{
+title: "Tray Slide Merge",
+icon: "images/apps/trayslidemerge.png",
+link: "https://play.google.com/store/apps/details?id=com.kolpoverse.trayslidemerge"
+}
 ];
 
 const grid = document.getElementById("appGrid");
 
-async function fetchAppData(url) {
-    try {
-        const proxy = "https://api.allorigins.win/get?url=";
-        const response = await fetch(proxy + encodeURIComponent(url));
-        const data = await response.json();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(data.contents, "text/html");
-
-        const title = doc.querySelector('meta[property="og:title"]')?.content || "App";
-        const image = doc.querySelector('meta[property="og:image"]')?.content || "";
-
-        return { title, image, url };
-    } catch (err) {
-        return { title: "Unavailable", image: "", url };
-    }
-}
-
-async function loadApps() {
-    for (let link of appLinks) {
-        const app = await fetchAppData(link);
-
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
-            <img src="${app.image}" alt="${app.title}">
-            <h3>${app.title}</h3>
-            <a href="${app.url}" target="_blank">View on Play Store</a>
-        `;
-
-        grid.appendChild(card);
-    }
-}
-
-loadApps();
+apps.forEach(app => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+        <img src="${app.icon}" alt="${app.title}">
+        <h3>${app.title}</h3>
+        <a href="${app.link}" target="_blank">View on Play Store</a>
+    `;
+    grid.appendChild(card);
+});
 </script>
 
 </body>
