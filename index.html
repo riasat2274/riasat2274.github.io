@@ -13,6 +13,20 @@
     #contactCtaLinkedIn:hover { background: #0a66c2; color: white; }
     #contactCtaContact { color: #16a34a; border-color: #16a34a; }
     #contactCtaContact:hover { background: #16a34a; color: white; }
+    .apps-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #22c55e;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: 0.3s ease;
+    }
+    .apps-btn:hover {
+    background: #16a34a;
+    transform: translateY(-2px);
+    }    
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased">
@@ -80,7 +94,7 @@
         <div class="text-sm text-slate-500">Projects show role, tech, and links.</div>
       </div>
       <div id="projectsGrid" class="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
-       <a href="apps.html">Other Projects</a>
+       <a href="apps.html" class="apps-btn">Other Projects</a>
      
       <!-- YOUTUBE SHOWCASE -->
       <div id="youtubeShowcase" class="mt-12 space-y-6"></div>
