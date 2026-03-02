@@ -269,6 +269,9 @@
           <div class="text-sm text-slate-500">Email</div>
           <div id="contactEmail" class="font-medium">you@example.com</div>
 
+          <div class="text-sm text-slate-500">LinkedIn</div>
+          <div id="linkedIn" class="font-medium">you@example.com</div>
+
           <div class="mt-4 text-sm text-slate-500">Location</div>
           <div id="contactLocation" class="font-medium">Dhaka, Bangladesh</div>
 
@@ -346,6 +349,7 @@ document.getElementById('footerYear').innerText = new Date().getFullYear();
 document.getElementById('linkPlay').href = DATA.projects[0]?.playStoreUrl || '#';
 document.getElementById('linkApp').href = DATA.projects[0]?.appStoreUrl || '#';
 document.getElementById('linkGithub').href = '#';
+document.getElementById('linkedIn').href = 'https://www.linkedin.com/in/riasatazimkhan2274';
 document.getElementById('menuBtn').addEventListener('click', () => {
   alert('Mobile menu — this template uses a simple header. For a real menu, replace this with a drawer or nav.');
 });
