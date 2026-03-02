@@ -15,6 +15,7 @@
     #contactCtaContact:hover { background: #16a34a; color: white; }
     .apps-btn {
     display: inline-block;
+    margin-top: 16px;
     padding: 12px 26px;
     background: #2563eb;
     color: #ffffff;
@@ -93,7 +94,7 @@
     <section id="projects" class="mt-12">
       <div class="flex items-center justify-between">
         <h2 class="text-2xl font-bold">Selected Projects</h2>
-        <div class="text-sm text-slate-500">Projects show role, tech, and links.</div>
+        <div class="text-sm text-slate-500"> </div>
       </div>
       <div id="projectsGrid" class="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
        <a href="apps.html" class="apps-btn">Other Projects</a>
@@ -351,12 +352,14 @@ document.getElementById('menuBtn').addEventListener('click', () => {
 
 // Render skills
 const skillsList = document.getElementById('skillsList');
-DATA.skills.forEach(s => {
-  const el = document.createElement('div');
-  el.className = 'px-3 py-1 bg-white rounded border text-sm';
-  el.innerText = s;
-  skillsList.appendChild(el);
-});
+if (skillsList) {
+  DATA.skills.forEach(s => {
+    const el = document.createElement('div');
+    el.className = 'px-3 py-1 bg-white rounded border text-sm';
+    el.innerText = s;
+    skillsList.appendChild(el);
+  });
+}
 
 
 
