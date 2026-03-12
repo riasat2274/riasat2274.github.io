@@ -11,6 +11,8 @@
     /* Custom text colors for CTA */
     #contactCtaLinkedIn { color: #0a66c2; border-color: #0a66c2; }
     #contactCtaLinkedIn:hover { background: #0a66c2; color: white; }
+    #contactCtaGithub { color: #21B0B5; border-color: #21B0B5; }
+    #contactCtaGithub:hover { background: #27E2E8; color: white; }
     #contactCtaContact { color: #16a34a; border-color: #16a34a; }
     #contactCtaContact:hover { background: #16a34a; color: white; }
     .apps-btn {
@@ -64,6 +66,7 @@
         <div class="mt-6 flex gap-3">
           <a id="downloadCv" href="resume.pdf" class="px-4 py-2 rounded-md bg-indigo-600 text-white text-sm shadow">Download CV</a>
           <a id="contactCtaLinkedIn" href="https://www.linkedin.com/in/riasatazimkhan2274" class="px-4 py-2 rounded-md border text-sm">LinkedIn</a>
+          <a id="contactCtaGithub" href="https://github.com/riasat2274" class="px-4 py-2 rounded-md border text-sm">Github</a>
           <a id="contactCtaContact" href="#contact" class="px-4 py-2 rounded-md border text-sm">Contact</a>
         </div>
 
@@ -348,7 +351,7 @@ document.getElementById('contactLocation').innerText = DATA.owner.location;
 document.getElementById('footerYear').innerText = new Date().getFullYear();
 document.getElementById('linkPlay').href = DATA.projects[0]?.playStoreUrl || '#';
 document.getElementById('linkApp').href = DATA.projects[0]?.appStoreUrl || '#';
-document.getElementById('linkGithub').href = '#';
+document.getElementById('linkGithub').href = 'https://github.com/riasat2274';
 document.getElementById('linkedIn').href = 'https://www.linkedin.com/in/riasatazimkhan2274';
 document.getElementById('menuBtn').addEventListener('click', () => {
   alert('Mobile menu — this template uses a simple header. For a real menu, replace this with a drawer or nav.');
