@@ -1,424 +1,1070 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Game Developer — Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .glass { background: rgba(255,255,255,0.6); backdrop-filter: blur(6px); }
-    .screenshot { aspect-ratio: 9/16; object-fit: cover; border-radius: .5rem; }
-    /* Custom text colors for CTA */
-    #contactCtaLinkedIn { color: #0a66c2; border-color: #0a66c2; }
-    #contactCtaLinkedIn:hover { background: #0a66c2; color: white; }
-    #contactCtaGithub { color: #21B0B5; border-color: #21B0B5; }
-    #contactCtaGithub:hover { background: #27E2E8; color: white; }
-    #contactCtaContact { color: #16a34a; border-color: #16a34a; }
-    #contactCtaContact:hover { background: #16a34a; color: white; }
-    .apps-btn {
-    display: inline-block;
-    margin-top: 16px;
-    padding: 12px 26px;
-    background: #2563eb;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 8px;
-    transition: all 0.25s ease;
-    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
-    }
-    .apps-btn:hover {
-    background: #1e40af;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
-  }
-  </style>
-</head>
-<body class="bg-slate-50 text-slate-800 antialiased">
-  <header class="bg-white/80 glass sticky top-0 z-30 shadow-sm">
-    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-md bg-gradient-to-tr from-indigo-500 to-pink-500 flex items-center justify-center text-white font-bold">MD</div>
-        <div>
-          <div id="ownerName" class="font-semibold">Your Name</div>
-          <div id="ownerRole" class="text-xs text-slate-600">Mobile Developer — Flutter / React Native / Native</div>
-        </div>
-      </div>
-      <nav class="hidden md:flex gap-4 text-sm">
-        <a href="#projects" class="hover:underline">Projects</a>
-        <a href="#skills" class="hover:underline">Skills</a>
-        <a href="#about" class="hover:underline">About</a>
-        <a href="#contact" class="hover:underline">Contact</a>
-      </nav>
-      <div class="md:hidden">
-        <button id="menuBtn" class="px-3 py-1 border rounded">Menu</button>
-      </div>
-    </div>
-  </header>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riasat Azim Khan | Game Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #00f0ff; --secondary: #ff2a6d; --accent: #05d5fa;
+            --dark: #0a0a0f; --darker: #050508; --card-bg: rgba(15, 15, 25, 0.8);
+            --glass: rgba(255, 255, 255, 0.03); --text-primary: #e0e0e0;
+            --text-secondary: #a0a0b0; --text-muted: #666; --border-color: rgba(0, 240, 255, 0.1);
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', 'Rajdhani', sans-serif; background: var(--darker);
+            color: var(--text-primary); overflow-x: hidden; line-height: 1.6;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--dark); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
 
-  <main class="max-w-5xl mx-auto px-4 py-8">
-    <!-- HERO -->
-    <section class="grid md:grid-cols-2 gap-6 items-center">
-      <div>
-        <h1 id="heroTitle" class="text-3xl md:text-4xl font-extrabold leading-tight">Hi — I'm <span class="text-indigo-600">Your Name</span></h1>
-        <p id="heroSubtitle" class="mt-3 text-slate-600">I build blah blah.</p>
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000; padding: 1.2rem 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(5, 5, 8, 0.85); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 240, 255, 0.1); transition: all 0.3s ease;
+        }
+        nav.scrolled { padding: 0.8rem 5%; background: rgba(5, 5, 8, 0.95); }
+        .logo {
+            font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 900;
+            color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+        }
+        .logo::before { content: '◆'; color: var(--secondary); animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.2); } }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a {
+            color: #b0b0b0; text-decoration: none; font-weight: 600; font-size: 1rem;
+            letter-spacing: 1px; position: relative; transition: color 0.3s ease;
+            text-transform: uppercase; font-family: 'Rajdhani', sans-serif;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+            background: var(--primary); transition: width 0.3s ease; box-shadow: 0 0 10px var(--primary);
+        }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a:hover::after { width: 100%; }
+        .mobile-menu-btn { display: none; background: none; border: none; color: var(--primary); font-size: 1.5rem; cursor: pointer; }
 
-        <div class="mt-6 flex gap-3">
-          <a id="downloadCv" href="resume.pdf" class="px-4 py-2 rounded-md bg-indigo-600 text-white text-sm shadow">Download CV</a>
-          <a id="contactCtaLinkedIn" href="https://www.linkedin.com/in/riasatazimkhan2274" class="px-4 py-2 rounded-md border text-sm">LinkedIn</a>
-          <a id="contactCtaGithub" href="https://github.com/riasat2274" class="px-4 py-2 rounded-md border text-sm">Github</a>
-          <a id="contactCtaContact" href="#contact" class="px-4 py-2 rounded-md border text-sm">Contact</a>
-        </div>
+        /* Hero */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden; padding: 6rem 5% 4rem;
+        }
 
-        <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 text-sm text-slate-700">
-          <div class="bg-white p-3 rounded shadow-sm">
-            <div class="text-xs text-slate-500">Primary Tech</div>
-            <div id="primaryTech" class="font-medium">Flutter, Dart</div>
-          </div>
-          <div class="bg-white p-3 rounded shadow-sm">
-            <div class="text-xs text-slate-500">Platforms</div>
-            <div id="platforms" class="font-medium">iOS, Android</div>
-          </div>
-          <div class="bg-white p-3 rounded shadow-sm">
-            <div class="text-xs text-slate-500">Availability</div>
-            <div id="availability" class="font-medium">Open to work</div>
-          </div>
-        </div>
-      </div>
+        @media (max-width: 768px) {
+            .hero { padding: 5rem 5% 5rem; min-height: auto; }
+        }
+        #particles-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+        .hero-content { position: relative; z-index: 2; text-align: center; max-width: 900px; }
+        .hero-badge {
+            display: inline-block; padding: 0.5rem 1.5rem; border: 1px solid var(--primary);
+            color: var(--primary); font-family: 'Orbitron', sans-serif; font-size: 0.85rem;
+            letter-spacing: 3px; margin-bottom: 2rem; animation: borderGlow 3s infinite alternate;
+            background: rgba(0, 240, 255, 0.05);
+        }
+        @keyframes borderGlow {
+            0% { box-shadow: 0 0 5px rgba(0, 240, 255, 0.3); }
+            100% { box-shadow: 0 0 20px rgba(0, 240, 255, 0.6), inset 0 0 10px rgba(0, 240, 255, 0.1); }
+        }
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900;
+            line-height: 1.1; margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, var(--primary) 50%, var(--secondary) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            animation: titleReveal 1s ease-out;
+        }
+        @keyframes titleReveal { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-subtitle { font-size: clamp(1.1rem, 2.5vw, 1.5rem); color: #a0a0b0; margin-bottom: 3rem; font-weight: 300; letter-spacing: 2px; }
+        .hero-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            padding: 1rem 2.5rem; font-family: 'Orbitron', sans-serif; font-size: 0.9rem;
+            letter-spacing: 2px; text-decoration: none; text-transform: uppercase; border: none;
+            cursor: pointer; position: relative; overflow: hidden; transition: all 0.3s ease; font-weight: 700;
+        }
+        .btn-primary { background: var(--primary); color: var(--darker); clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%); }
+        .btn-primary:hover { background: #fff; box-shadow: 0 0 30px rgba(0, 240, 255, 0.5); transform: translateY(-2px); }
+        .btn-secondary { background: transparent; color: var(--primary); border: 2px solid var(--primary); clip-path: polygon(0 0, 90% 0, 100% 30%, 100% 100%, 10% 100%, 0 70%); }
+        .btn-secondary:hover { background: rgba(0, 240, 255, 0.1); box-shadow: 0 0 20px rgba(0, 240, 255, 0.3); transform: translateY(-2px); }
+        .scroll-indicator { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--primary); font-size: 0.8rem; letter-spacing: 2px; animation: bounce 2s infinite; z-index: 5; pointer-events: none; }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); } 40% { transform: translateX(-50%) translateY(-10px); } 60% { transform: translateX(-50%) translateY(-5px); } }
+        .scroll-indicator::after { content: '▼'; font-size: 1.2rem; }
 
-      <div class="hidden md:block">
-        <div class="w-full h-full rounded-lg shadow-lg overflow-hidden">
-          <img id="heroMock" src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=abc" alt="app mockup" class="w-full h-96 object-cover">
-        </div>
-      </div>
-    </section>
+        @media (max-width: 768px) {
+            .scroll-indicator { bottom: 1rem; font-size: 0.7rem; }
+            .hero-buttons { margin-bottom: 3rem; }
+            .hero-content { padding-bottom: 2rem; }
+        }
 
-    <!-- PROJECTS -->
-    <section id="projects" class="mt-12">
-      <div class="flex items-center justify-between">
-        <h2 class="text-2xl font-bold">Selected Projects</h2>
-        <div class="text-sm text-slate-500"> </div>
-      </div>
-      <div id="projectsGrid" class="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
-       <a href="apps.html" class="apps-btn">Other Projects</a>
-     
-      <!-- YOUTUBE SHOWCASE -->
-      <div id="youtubeShowcase" class="mt-12 space-y-6"></div>
-    </section>
+        @media (max-width: 480px) {
+            .scroll-indicator { display: none; }
+        }
 
-    <!-- SKILLS -->
-      <section id="skills" class="mt-12">
-  <h2 class="text-2xl font-bold">Skills & Tech</h2>
-  <p class="mt-2 text-slate-600">Languages, frameworks, and tools I use daily.</p>
+        /* Sections */
+        section { padding: 6rem 5%; position: relative; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-family: 'Orbitron', sans-serif; font-size: clamp(2rem, 4vw, 3rem); color: #fff; margin-bottom: 1rem; position: relative; display: inline-block; }
+        .section-header h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 60px; height: 3px; background: var(--primary); box-shadow: 0 0 10px var(--primary); }
+        .section-header p { color: #888; font-size: 1.1rem; max-width: 600px; margin: 1.5rem auto 0; }
 
-  <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        /* About */
+        .about { background: var(--dark); }
+        .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: center; max-width: 1200px; margin: 0 auto; }
+        .about-image { position: relative; }
+        .about-image-frame { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, var(--primary), var(--secondary)); clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%); padding: 3px; }
+        .about-image-inner { width: 100%; height: 100%; background: var(--darker); clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%); display: flex; align-items: center; justify-content: center; font-size: 6rem; color: var(--primary); position: relative; overflow: hidden; }
+        .about-image-inner::before { content: ''; position: absolute; width: 200%; height: 200%; background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0, 240, 255, 0.03) 10px, rgba(0, 240, 255, 0.03) 20px); animation: scan 10s linear infinite; }
+        @keyframes scan { 0% { transform: translate(-50%, -50%); } 100% { transform: translate(0, 0); } }
+        .about-content h3 { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; color: var(--primary); margin-bottom: 1rem; }
+        .about-content p { color: #a0a0b0; margin-bottom: 1.5rem; font-size: 1.05rem; }
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+        .stat-item { text-align: center; padding: 1.5rem; background: var(--glass); border: 1px solid rgba(0, 240, 255, 0.1); clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%); transition: all 0.3s ease; }
+        .stat-item:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1); }
+        .stat-number { font-family: 'Orbitron', sans-serif; font-size: 2rem; font-weight: 900; color: var(--primary); display: block; }
+        .stat-label { font-size: 0.85rem; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-top: 0.5rem; }
 
-    <!-- Engine & Languages -->
-    <div>
-      <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-3">Engine & Languages</h3>
-      <div class="flex flex-col gap-3">
-        <div class="skill-row">
-          <div class="flex justify-between mb-1">
-            <span class="text-sm font-medium text-slate-700">Unity</span>
-            <span class="text-xs text-slate-400">Expert · 10 yrs</span>
-          </div>
-          <div class="w-full bg-slate-300 rounded-full h-2">
-            <div class="bg-indigo-300 h-2 rounded-full" style="width: 97%"></div>
-          </div>
-        </div>
-        <div class="skill-row">
-          <div class="flex justify-between mb-1">
-            <span class="text-sm font-medium text-slate-700">C#</span>
-            <span class="text-xs text-slate-400">Expert · 10 yrs</span>
-          </div>
-          <div class="w-full bg-slate-300 rounded-full h-2">
-            <div class="bg-indigo-300 h-2 rounded-full" style="width: 95%"></div>
-          </div>
-        </div>
-        <div class="skill-row">
-          <div class="flex justify-between mb-1">
-            <span class="text-sm font-medium text-slate-700">C++</span>
-            <span class="text-xs text-slate-400">Intermediate · 2 yrs</span>
-          </div>
-          <div class="w-full bg-slate-300 rounded-full h-2">
-            <div class="bg-indigo-300 h-2 rounded-full" style="width: 70%"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+        /* Skills Bars */
+        .skills-bars { background: var(--darker); }
+        .skills-container { max-width: 1100px; margin: 0 auto; }
+        .skills-grid-bars { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem 4rem; }
+        .skill-category { margin-bottom: 1rem; }
+        .skill-category-title { font-family: 'Orbitron', sans-serif; font-size: 0.75rem; letter-spacing: 3px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .skill-bar-item { margin-bottom: 1.2rem; }
+        .skill-bar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem; }
+        .skill-bar-name { font-weight: 600; font-size: 0.95rem; color: var(--text-primary); }
+        .skill-bar-meta { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+        .skill-bar-track { width: 100%; height: 8px; background: rgba(255, 255, 255, 0.05); border-radius: 4px; overflow: hidden; position: relative; }
+        .skill-bar-fill { height: 100%; border-radius: 4px; position: relative; width: 0; transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1); }
+        .skill-bar-fill::after { content: ''; position: absolute; right: 0; top: 0; width: 20px; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3)); border-radius: 0 4px 4px 0; }
+        .skill-bar-fill.cyan { background: linear-gradient(90deg, #00c8ff, #00f0ff); box-shadow: 0 0 10px rgba(0, 240, 255, 0.3); }
+        .skill-bar-fill.purple { background: linear-gradient(90deg, #a855f7, #c084fc); box-shadow: 0 0 10px rgba(168, 85, 247, 0.3); }
+        .skill-bar-fill.blue { background: linear-gradient(90deg, #3b82f6, #60a5fa); box-shadow: 0 0 10px rgba(59, 130, 246, 0.3); }
+        .skill-bar-fill.teal { background: linear-gradient(90deg, #14b8a6, #2dd4bf); box-shadow: 0 0 10px rgba(20, 184, 166, 0.3); }
 
-    <!-- Graphics & VFX -->
-    <div>
-      <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-3">Graphics & VFX</h3>
-      <div class="flex flex-col gap-3">
-        <div class="skill-row">
-          <div class="flex justify-between mb-1">
-            <span class="text-sm font-medium text-slate-700">Shader Graph</span>
-            <span class="text-xs text-slate-400">Expert</span>
-          </div>
-          <div class="w-full bg-slate-300 rounded-full h-2">
-            <div class="bg-purple-300 h-2 rounded-full" style="width: 92%"></div>
-          </div>
-        </div>
-        <div class="skill-row">
-          <div class="flex justify-between mb-1">
-            <span class="text-sm font-medium text-slate-700">HLSL</span>
-            <span class="text-xs text-slate-400">Intermediate</span>
-          </div>
-          <div class="w-full bg-slate-300 rounded-full h-2">
-            <div class="bg-purple-300 h-2 rounded-full" style="width: 56%"></div>
-          </div>
-        </div>
-        <div class="skill-row">
-          <div class="flex justify-between mb-1">
-            <span class="text-sm font-medium text-slate-700">Particle Systems</span>
-            <span class="text-xs text-slate-400">Expert</span>
-          </div>
-          <div class="w-full bg-slate-300 rounded-full h-2">
-            <div class="bg-purple-300 h-2 rounded-full" style="width: 90%"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Performance & DevOps -->
-    <div>
-      <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-3">Performance & DevOps</h3>
-      <div class="flex flex-col gap-3">
-        <div class="skill-row">
-          <div class="flex justify-between mb-1">
-            <span class="text-sm font-medium text-slate-700">Performance Optimization</span>
-            <span class="text-xs text-slate-400">Expert</span>
-          </div>
-          <div class="w-full bg-slate-300 rounded-full h-2">
-            <div class="bg-sky-300 h-2 rounded-full" style="width: 93%"></div>
-          </div>
-        </div>
-        <div class="skill-row">
-          <div class="flex justify-between mb-1">
-            <span class="text-sm font-medium text-slate-700">Git</span>
-            <span class="text-xs text-slate-400">Advanced</span>
-          </div>
-          <div class="w-full bg-slate-300 rounded-full h-2">
-            <div class="bg-sky-300 h-2 rounded-full" style="width: 82%"></div>
-          </div>
-        </div>
-        <div class="skill-row">
-          <div class="flex justify-between mb-1">
-            <span class="text-sm font-medium text-slate-700">Analytics</span>
-            <span class="text-xs text-slate-400">Intermediate</span>
-          </div>
-          <div class="w-full bg-slate-300 rounded-full h-2">
-            <div class="bg-sky-300 h-2 rounded-full" style="width: 65%"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Monetization & SDK -->
-    <div>
-      <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-3">Monetization & SDK</h3>
-      <div class="flex flex-col gap-3">
-        <div class="skill-row">
-          <div class="flex justify-between mb-1">
-            <span class="text-sm font-medium text-slate-700">Ad Networks (IronSource, MAX)</span>
-            <span class="text-xs text-slate-400">Expert</span>
-          </div>
-          <div class="w-full bg-slate-300 rounded-full h-2">
-            <div class="bg-teal-300 h-2 rounded-full" style="width: 90%"></div>
-          </div>
-        </div>
-        <div class="skill-row">
-          <div class="flex justify-between mb-1">
-            <span class="text-sm font-medium text-slate-700">IAP Integration</span>
-            <span class="text-xs text-slate-400">Expert</span>
-          </div>
-          <div class="w-full bg-slate-300 rounded-full h-2">
-            <div class="bg-teal-300 h-2 rounded-full" style="width: 95%"></div>
-          </div>
-        </div>
-        <div class="skill-row">
-          <div class="flex justify-between mb-1">
-            <span class="text-sm font-medium text-slate-700">SDK Deployment</span>
-            <span class="text-xs text-slate-400">Expert</span>
-          </div>
-          <div class="w-full bg-slate-300 rounded-full h-2">
-            <div class="bg-teal-300 h-2 rounded-full" style="width: 88%"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-    <!-- ABOUT -->
-    <section id="about" class="mt-12 bg-white p-6 rounded shadow-sm">
-      <h2 class="text-xl font-bold">About Me</h2>
-      <p id="aboutText" class="mt-3 text-slate-700">
-        I specialize in making 3d/2d games using the UNITY game engine. With experience over 10 years I have  Two Published Titles under my belt. I focus not only on high quality games but also optimizing the development process. 
-        I am Well acquainted with SDK deployments, Ad networks deployments, performance optimisation, custom shaders using shader graphs, HLSL and Particle effects. 
-        I emphasize effective communications for better task management. I also love contributing to game design.
-      </p>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="mt-8">
-      <h2 class="text-2xl font-bold">Get in touch</h2>
-      <p class="mt-2 text-slate-600">Email me or DM me in LinkedIn</p>
-
-      <div class="mt-4 grid md:grid-cols-2 gap-6">
-        <div class="bg-white p-4 rounded shadow-sm">
-          <div class="text-sm text-slate-500">Email</div>
-          <div id="contactEmail" class="font-medium">riasat2274@gmail.com</div>
-
-          <div class="text-sm text-slate-500">LinkedIn</div>
-          <div id="linkedIn" class="font-medium">https://www.linkedin.com/in/riasatazimkhan2274</div>
-
-          <div class="mt-4 text-sm text-slate-500">Location</div>
-          <div id="contactLocation" class="font-medium">Dhaka, Bangladesh</div>
-
-          <div class="mt-4 flex gap-3">
-            <a id="linkPlay" class="text-sm underline" href="https://play.google.com/store/apps/developer?id=Kolpoverse&hl=en"></a>
-            <a id="linkApp" class="text-sm underline" href="https://play.google.com/store/apps/developer?id=Kolpoverse&hl=en"></a>
-            <a id="linkGithub" class="text-sm underline" href="www.linkedin.com/in/riasatazimkhan2274"></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="mt-12 text-center text-sm text-slate-500">© <span id="footerYear"></span> Riasat Azim Khan — Game Developer</footer>
-  </main>
-
-  <!-- DATA + renderer -->
-  <script id="data">
-  const DATA = {
-    owner: {
-      name: "Riasat Azim Khan ",
-      role: "Senior Game Programmer | Unity Specialist | Hyper-Casual, Casual & Mid-core Mobile Games",
-      primaryTech: "Unity, C#, C++, Shadergraph, HLSL, Particles",
-      platforms: "iOS, Android",
-      availability: "Open to work",
-      email: "riasat2274@gmail.com",
-      location: "Dhaka, Bangladesh",
-      heroImage: "images/pp.png",
-    },
-    skills: ["Unity", "C#", "C++","Performance Optimization", "Ads & IAP", "SDK", "Git", "Analytics", "Deployment" ],
-    projects: [
-      {
-        title: "Prank Master 3D",
-        role: "Core Gameplay, Shaders, Effects",
-        platform: "Android / iOS",
-        tech: ["Unity", "C#"],
-        description: "Choice-based puzzle game. Published by Lion Studios.",
-        screenshots: ["images/prank01.jpeg","images/prank02.jpg", "images/prank03.png"],
-        playStoreUrl: "https://play.google.com/store/apps/details?id=com.alphapotato.prankster",
-        appStoreUrl: "https://apps.apple.com/us/app/prank-master-3d/id1528127833",
-        demoUrl: "#",
-        metrics: { downloads: "50M+", rating: "4.6" }
-      },
-      {
-        title: "Pawn Shop Master",
-        role: "Core Gameplay loop, NPC, Visual Effects",
-        platform: "Android / iOS",
-        tech: ["Unity", "C#"],
-        description: "Shop management simulation game.Published by Lion Studios.",
-        screenshots: ["images/pawn01.jpg","images/pawn02.jpg", "images/pawn03.jpg"],
-        playStoreUrl: "https://play.google.com/store/apps/details?id=com.alphapotato.pawnshopmaster",
-        appStoreUrl: "https://apps.apple.com/us/app/pawn-shop-master/id1511472595",
-        demoUrl: "#",
-        metrics: { downloads: "10M+", rating: "4.4" }
-      }
-    ],
-    // New separate showcase array
-    showcaseVideos: [
-      { title: "Gameplay Showcase 2022", url: "https://www.youtube.com/embed/6gzO7aGJLsY?si=jPUDkDU8t8oqpvpW" },
-      { title: "Gameplay Showcase 2023", url: "https://www.youtube.com/embed/6iaRr3DIsJE?si=_UPYgj1MpVvr8pkA" },
-      { title: "Gameplay Showcase 2024", url: "https://www.youtube.com/embed/7DnxHbzCLWI?si=cAHIraasQKbzAsjq" }
-    ]
-  };
-
-  document.getElementById('ownerName').innerText = DATA.owner.name;
-document.getElementById('ownerRole').innerText = DATA.owner.role;
-document.getElementById('heroTitle').innerHTML = `Hi — I'm <span class="text-indigo-600">${DATA.owner.name.split(' ')[0]}</span>`;
-document.getElementById('heroSubtitle').innerText = `I'm a Senior Unity developer with 10+ years of experience and 60M+ combined downloads across two titles published by Lion Studios. I specialize in core gameplay, visual effects, and performance optimization for iOS and Android.`;
-document.getElementById('primaryTech').innerText = DATA.owner.primaryTech;
-document.getElementById('platforms').innerText = DATA.owner.platforms;
-document.getElementById('availability').innerText = DATA.owner.availability;
-document.getElementById('heroMock').src = DATA.owner.heroImage;
-document.getElementById('contactEmail').innerText = DATA.owner.email;
-document.getElementById('contactLocation').innerText = DATA.owner.location;
-document.getElementById('footerYear').innerText = new Date().getFullYear();
-document.getElementById('linkPlay').href = DATA.projects[0]?.playStoreUrl || '#';
-document.getElementById('linkApp').href = DATA.projects[0]?.appStoreUrl || '#';
-document.getElementById('linkGithub').href = 'https://github.com/riasat2274';
-document.getElementById('linkedIn').href = 'https://www.linkedin.com/in/riasatazimkhan2274';
-document.getElementById('menuBtn').addEventListener('click', () => {
-  alert('Mobile menu — this template uses a simple header. For a real menu, replace this with a drawer or nav.');
-});
-
-// Render skills
-const skillsList = document.getElementById('skillsList');
-if (skillsList) {
-  DATA.skills.forEach(s => {
-    const el = document.createElement('div');
-    el.className = 'px-3 py-1 bg-white rounded border text-sm';
-    el.innerText = s;
-    skillsList.appendChild(el);
-  });
+        /* Games Showcase */
+        .games-showcase { background: var(--dark); }
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .game-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 240, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .game-card:hover::before { opacity: 1; }
+        .game-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 240, 255, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 240, 255, 0.1);
+        }
+        .game-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(255, 42, 109, 0.15));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            flex-shrink: 0;
+        }
+        .game-icon-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            object-fit: cover;
+            border: 2px solid rgba(0, 240, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
 }
+        .game-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            color: #fff;
+            margin: 0;
+        }
+        .game-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        .game-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .game-tag {
+            padding: 0.25rem 0.7rem;
+            background: rgba(0, 240, 255, 0.08);
+            color: var(--primary);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border: 1px solid rgba(0, 240, 255, 0.15);
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+        .game-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, #34a853, #2e8b47);
+            color: white;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            margin-top: auto;
+        }
+        .game-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(52, 168, 83, 0.4);
+            background: linear-gradient(135deg, #3cb960, #34a853);
+        }
+        .game-link svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+        /* Video Showcase */
+        .video-showcase { background: var(--dark); position: relative; }
+        .video-showcase:nth-child(even) { background: var(--darker); }
+        .video-container { max-width: 1200px; margin: 0 auto; }
+        .video-layout { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: start; }
+        .video-layout.reverse { grid-template-columns: 1fr 1.4fr; }
+        .video-layout.reverse .video-info { order: -1; }
+        .video-wrapper { position: relative; width: 100%; padding-bottom: 56.25%; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 12px; overflow: hidden; border: 1px solid rgba(0, 240, 255, 0.15); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); transition: all 0.4s ease; }
+        .video-wrapper:hover { border-color: var(--primary); box-shadow: 0 20px 60px rgba(0, 240, 255, 0.15); transform: translateY(-5px); }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px; }
+        .video-placeholder { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; background: linear-gradient(135deg, #1a1a2e, #16213e); transition: all 0.3s ease; }
+        .video-placeholder:hover { background: linear-gradient(135deg, #1e1e3a, #1a2a4a); }
+        .video-placeholder:hover .play-button { transform: scale(1.1); box-shadow: 0 0 40px rgba(255, 42, 109, 0.6); }
+        .play-button { width: 80px; height: 80px; background: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; box-shadow: 0 0 30px rgba(255, 42, 109, 0.4); position: relative; }
+        .play-button::after { content: ''; width: 0; height: 0; border-left: 28px solid white; border-top: 16px solid transparent; border-bottom: 16px solid transparent; margin-left: 6px; }
+        .video-placeholder-text { margin-top: 1.5rem; color: var(--text-secondary); font-size: 0.9rem; text-align: center; }
+        .video-placeholder-text strong { color: var(--primary); display: block; font-size: 1.1rem; margin-bottom: 0.3rem; }
+        .video-info { padding-top: 1rem; }
+        .video-number { font-family: 'Orbitron', sans-serif; font-size: 4rem; font-weight: 900; color: rgba(0, 240, 255, 0.1); line-height: 1; margin-bottom: 0.5rem; }
+        .video-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+        .video-tag { padding: 0.3rem 0.8rem; background: rgba(0, 240, 255, 0.1); color: var(--primary); font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; border: 1px solid rgba(0, 240, 255, 0.2); border-radius: 4px; }
+        .video-info h3 { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; color: #fff; margin-bottom: 1rem; line-height: 1.3; }
+        .video-info p { color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; }
+        .video-stats { display: flex; gap: 2rem; margin-bottom: 1.5rem; padding: 1rem 0; border-top: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .video-stat { display: flex; flex-direction: column; }
+        .video-stat-value { font-family: 'Orbitron', sans-serif; font-size: 1.3rem; color: var(--primary); font-weight: 700; }
+        .video-stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .video-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .video-link { padding: 0.7rem 1.5rem; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 1px; text-decoration: none; text-transform: uppercase; font-weight: 700; transition: all 0.3s ease; border-radius: 6px; display: inline-flex; align-items: center; gap: 0.5rem; }
+        .video-link.primary { background: var(--secondary); color: white; box-shadow: 0 4px 15px rgba(255, 42, 109, 0.3); }
+        .video-link.primary:hover { background: #ff4d8a; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255, 42, 109, 0.5); }
+        .video-link.secondary { background: transparent; color: var(--primary); border: 1px solid var(--primary); }
+        .video-link.secondary:hover { background: rgba(0, 240, 255, 0.1); transform: translateY(-2px); }
 
+        /* Contact */
+        .contact { background: var(--dark); position: relative; overflow: hidden; }
+        .contact::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0, 240, 255, 0.03) 0%, transparent 70%); animation: rotate 30s linear infinite; }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .contact-container { max-width: 800px; margin: 0 auto; position: relative; z-index: 2; }
 
+        /* Quick Action Buttons */
+        .quick-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+        .action-btn {
+            display: flex; align-items: center; gap: 1rem; padding: 1.2rem 1.5rem;
+            background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px;
+            text-decoration: none; color: inherit; transition: all 0.3s ease; position: relative; overflow: hidden;
+        }
+        .action-btn::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; transition: all 0.3s ease; }
+        .action-btn:hover { transform: translateY(-5px); border-color: transparent; }
+        .btn-cv::before { background: linear-gradient(90deg, #00c8ff, #00f0ff); }
+        .btn-cv:hover { box-shadow: 0 10px 40px rgba(0, 240, 255, 0.2); border-color: var(--primary); }
+        .btn-linkedin::before { background: linear-gradient(90deg, #0077b5, #00a0dc); }
+        .btn-linkedin:hover { box-shadow: 0 10px 40px rgba(0, 119, 181, 0.2); border-color: #0077b5; }
+        .btn-github::before { background: linear-gradient(90deg, #6e5494, #a371f7); }
+        .btn-github:hover { box-shadow: 0 10px 40px rgba(110, 84, 148, 0.2); border-color: #6e5494; }
+        .action-icon { font-size: 1.8rem; flex-shrink: 0; }
+        .action-text { display: flex; flex-direction: column; gap: 0.2rem; }
+        .action-title { font-family: 'Orbitron', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; letter-spacing: 1px; }
+        .action-sub { font-size: 0.8rem; color: var(--text-muted); }
+        .contact-divider { display: flex; align-items: center; text-align: center; margin-bottom: 2.5rem; color: var(--text-muted); font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; }
+        .contact-divider::before, .contact-divider::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.2), transparent); }
+        .contact-divider span { padding: 0 1.5rem; }
 
+        .contact-form { display: grid; gap: 1.5rem; }
+        .form-group { position: relative; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 1rem 1.5rem; background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 240, 255, 0.2); color: #fff; font-family: 'Inter', sans-serif;
+            font-size: 1rem; outline: none; transition: all 0.3s ease; border-radius: 8px;
+        }
+        .form-group textarea { min-height: 150px; resize: vertical; }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--primary); box-shadow: 0 0 20px rgba(0, 240, 255, 0.1); background: rgba(0, 240, 255, 0.05); }
+        .form-group label { position: absolute; left: 1.5rem; top: 1rem; color: #666; pointer-events: none; transition: all 0.3s ease; font-size: 0.95rem; }
+        .form-group input:focus + label, .form-group input:not(:placeholder-shown) + label, .form-group textarea:focus + label, .form-group textarea:not(:placeholder-shown) + label { top: -0.6rem; left: 1rem; font-size: 0.8rem; color: var(--primary); background: var(--dark); padding: 0 0.5rem; }
+        .contact-social { display: flex; justify-content: center; gap: 2rem; margin-top: 3rem; }
+        .social-link { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0, 240, 255, 0.3); color: var(--primary); text-decoration: none; font-size: 1.3rem; transition: all 0.3s ease; position: relative; overflow: hidden; border-radius: 8px; }
+        .social-link::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: var(--primary); transition: left 0.3s ease; z-index: -1; }
+        .social-link:hover::before { left: 0; }
+        .social-link:hover { color: var(--darker); border-color: var(--primary); box-shadow: 0 0 20px rgba(0, 240, 255, 0.3); }
 
-  // Render projects
-  const projectsGrid = document.getElementById('projectsGrid');
-  DATA.projects.forEach(p => {
-    const card = document.createElement('article');
-    card.className = 'bg-white rounded-lg shadow-sm overflow-hidden';
-    card.innerHTML = `
-      <div class="p-4">
-        <div class="flex items-start justify-between gap-3">
-          <div>
-            <h3 class="font-semibold text-lg">${p.title}</h3>
-            <div class="text-sm text-slate-500">${p.role} • ${p.platform}</div>
-          </div>
-          <div class="text-sm text-slate-700 font-medium">${p.metrics?.downloads ?? ''}</div>
+        /* Footer */
+        footer { background: var(--darker); padding: 2rem 5%; text-align: center; border-top: 1px solid rgba(0, 240, 255, 0.1); }
+        footer p { color: #555; font-size: 0.9rem; letter-spacing: 1px; }
+        footer span { color: var(--primary); }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .skills-grid-bars { grid-template-columns: 1fr; gap: 2rem; }
+            .video-layout, .video-layout.reverse { grid-template-columns: 1fr; }
+            .video-layout.reverse .video-info { order: 0; }
+            .video-info { padding-top: 0; }
+            .quick-actions { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(5, 5, 8, 0.98); flex-direction: column; padding: 2rem; gap: 1.5rem; border-bottom: 1px solid rgba(0, 240, 255, 0.2); }
+            .nav-links.active { display: flex; }
+            .mobile-menu-btn { display: block; }
+            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .stats-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Reveal Animation */
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo">RIASAT AZIM KHAN</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#games">Games</a></li>
+            <li><a href="#video1">Videos</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <canvas id="particles-canvas"></canvas>
+        <div class="hero-content">
+            <div class="hero-badge">GAME DEVELOPER — UNITY SPECIALIST</div>
+            <h1>CRAFTING WORLDS,<br>ONE PIXEL AT A TIME</h1>
+            <p class="hero-subtitle">10+ Years Experience | 2 Published Titles | Unity 3D/2D Expert</p>
+            <div class="hero-buttons">
+                <a href="#video1" class="btn btn-primary">Watch My Games</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
         </div>
-        <p class="mt-3 text-slate-600 text-sm">${p.description}</p>
-        <div class="mt-3 flex gap-2 flex-wrap">
-          ${p.tech.map(t => `<span class="text-xs px-2 py-1 border rounded">${t}</span>`).join('')}
-        </div>
-        <div class="mt-3 flex gap-2 items-center">
-          ${p.playStoreUrl ? `<a class="text-xs underline" href="${p.playStoreUrl}">Google Play</a>` : ''}
-          ${p.appStoreUrl ? `<a class="text-xs underline" href="${p.appStoreUrl}">App Store</a>` : ''}
-          ${p.demoUrl ? `<a class="text-xs underline" href="${p.demoUrl}">Demo</a>` : ''}
-          ${p.metrics?.rating ? `<div class="ml-auto text-sm text-slate-500">⭐ ${p.metrics.rating}</div>` : ''}
-        </div>
-      </div>
-      ${p.screenshots?.length ? `
-        <div class="p-3 bg-slate-50 border-t">
-          <div class="flex gap-2 overflow-x-auto p-1">
-            ${p.screenshots.map(s => `<img src="${s}" class="w-28 h-56 object-cover rounded"/>`).join('')}
-          </div>
-        </div>` : ''}
-    `;
-    projectsGrid.appendChild(card);
-  });
+        <div class="scroll-indicator">SCROLL</div>
+    </section>
 
-  // Render showcase videos
-  const youtubeShowcase = document.getElementById('youtubeShowcase');
-  DATA.showcaseVideos.forEach(v => {
-    const div = document.createElement('div');
-    div.innerHTML = `
-      <h3 class="text-lg font-semibold mt-6">${v.title}</h3>
-      <div class="aspect-video w-full rounded overflow-hidden shadow">
-        <iframe width="100%" height="400" src="${v.url}" title="${v.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    `;
-    youtubeShowcase.appendChild(div);
-  });
-</script>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-header reveal">
+            <h2>ABOUT ME</h2>
+            <p>I specialize in making 3D/2D games using the UNITY game engine.</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-image reveal">
+                <div class="about-image-frame">
+                    <div class="about-image-inner">🎮</div>
+                </div>
+            </div>
+            <div class="about-content reveal">
+                <h3>Building the Future of Play</h3>
+                <p>I'm Riasat Azim Khan, a dedicated game developer with over <strong>10 years of experience</strong> in the industry. I specialize in creating immersive 3D/2D games using the Unity game engine. With two Top Carht published titles under my belt, I focus not only on high quality games but also optimizing the development process.</p>
+                <p>I am well acquainted with SDK deployments, ad network deployments, performance optimisation, custom shaders using Shader Graph, HLSL particle effects and AI work flow. I emphasize effective communications for better task management and also love contributing to game design.</p>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="10">0</span>
+                        <span class="stat-label">Years Exp</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="2">0</span>
+                        <span class="stat-label">Published Titles</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="1">0</span>
+                        <span class="stat-label">Location: Dhaka</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Skills Section -->
+    <section class="skills-bars" id="skills">
+        <div class="section-header reveal">
+            <h2>SKILLS & TECH</h2>
+            <p>Languages, frameworks, and tools I use daily.</p>
+        </div>
+        <div class="skills-container">
+            <div class="skills-grid-bars">
+                <!-- Column 1 -->
+                <div class="skills-column reveal">
+                    <div class="skill-category">
+                        <div class="skill-category-title">Engine & Languages</div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span class="skill-bar-name">Unity</span>
+                                <span class="skill-bar-meta">Expert · 10 yrs</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill cyan" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span class="skill-bar-name">C#</span>
+                                <span class="skill-bar-meta">Expert · 10 yrs</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill cyan" data-width="92"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span class="skill-bar-name">C++</span>
+                                <span class="skill-bar-meta">Intermediate · 2 yrs</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill cyan" data-width="55"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-category-title">Performance & DevOps</div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span class="skill-bar-name">Performance Optimization</span>
+                                <span class="skill-bar-meta">Expert</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill blue" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span class="skill-bar-name">Git</span>
+                                <span class="skill-bar-meta">Expert</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill blue" data-width="92"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span class="skill-bar-name">Analytics</span>
+                                <span class="skill-bar-meta">Expert</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill blue" data-width="89"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column 2 -->
+                <div class="skills-column reveal reveal-delay-1">
+                    <div class="skill-category">
+                        <div class="skill-category-title">Graphics & VFX</div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span class="skill-bar-name">Shader Graph</span>
+                                <span class="skill-bar-meta">Expert</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill purple" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span class="skill-bar-name">HLSL</span>
+                                <span class="skill-bar-meta">Intermediate</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill purple" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span class="skill-bar-name">Particle Systems</span>
+                                <span class="skill-bar-meta">Expert</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill purple" data-width="92"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-category-title">Monetization & SDK</div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span class="skill-bar-name">Ad Networks (IronSource, MAX)</span>
+                                <span class="skill-bar-meta">Expert</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill teal" data-width="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span class="skill-bar-name">IAP Integration</span>
+                                <span class="skill-bar-meta">Expert</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill teal" data-width="93"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span class="skill-bar-name">SDK Deployment</span>
+                                <span class="skill-bar-meta">Expert</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill teal" data-width="90"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Showcase Section -->
+    <section class="games-showcase" id="games">
+        <div class="section-header reveal">
+            <h2>MY GAMES</h2>
+            <p>Published titles and projects I've worked on. Available on the Play Store.</p>
+        </div>
+        <div class="games-grid">
+            <div class="game-card reveal">
+                <img src="images/PrankMasterIcon.png" alt="Prank Master 3D" class="game-icon-img">
+                <h3>Prank Master 3D</h3>
+                <p>Choice-based puzzle game. Published by Lion Studios. With Over 50M+ downloads</p>
+                <div class="game-tags">
+                    <span class="game-tag">Unity</span>
+                    <span class="game-tag">Puzzle</span>
+                    <span class="game-tag">Brain Teaser</span>
+                    <span class="game-tag">Casual</span>
+                    <span class="game-tag">Offline</span>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.alphapotato.prankster" target="_blank" rel="noopener noreferrer" class="game-link">
+                    <svg viewBox="0 0 24 24"><path d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.6 3 21.09 3 20.5ZM16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12ZM20.16 10.81C20.5 11.08 20.75 11.5 20.75 12C20.75 12.5 20.53 12.9 20.18 13.18L17.89 14.5L15.39 12L17.89 9.5L20.16 10.81ZM6.05 2.66L16.81 8.88L14.54 11.15L6.05 2.66Z"/></svg>
+                    Get on Play Store
+                </a>
+            </div>
+
+            <div class="game-card reveal reveal-delay-1">
+                <img src="images/PawnShopMasterIcon.png" alt="Pawn Shop Master" class="game-icon-img">
+                <h3>Pawn Shop Master</h3>
+                <p>A mind-bending 3D Shop management built with Unity. A simulation game where you manage a pawn shop. Published by Lion Studios. With Over 10M+ downloads</p>
+                <div class="game-tags">
+                    <span class="game-tag">Unity</span>
+                    <span class="game-tag">3D</span>
+                    <span class="game-tag">Simulation</span>
+                    <span class="game-tag">Casual</span>
+                    <span class="game-tag">Offline</span>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.alphapotato.pawnshopmaster" target="_blank" rel="noopener noreferrer" class="game-link">
+                    <svg viewBox="0 0 24 24"><path d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.6 3 21.09 3 20.5ZM16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12ZM20.16 10.81C20.5 11.08 20.75 11.5 20.75 12C20.75 12.5 20.53 12.9 20.18 13.18L17.89 14.5L15.39 12L17.89 9.5L20.16 10.81ZM6.05 2.66L16.81 8.88L14.54 11.15L6.05 2.66Z"/></svg>
+                    Get on Play Store
+                </a>
+            </div>
+
+            <div class="game-card reveal reveal-delay-1">
+                <img src="images/apps/holejam.png" alt="Hole Jam" class="game-icon-img">
+                <h3>Hole Jam</h3>
+                <p>A fun and engaging casual puzzle game built with Unity. Solve satisfying challenges and progress through creative levels.</p>
+                <div class="game-tags">
+                    <span class="game-tag">Unity</span>
+                    <span class="game-tag">Puzzle</span>
+                    <span class="game-tag">Casual</span>
+                    <span class="game-tag">Mobile</span>
+                    <span class="game-tag">Offline</span>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.kolpoverse.holejam" target="_blank" class="game-link">Get on Play Store</a>
+            </div>
+
+            <div class="game-card reveal reveal-delay-2">
+                <img src="images/apps/goodstapjam.png" alt="Goods Tap Jam" class="game-icon-img">
+                <h3>Goods Tap Jam</h3>
+                <p>A fast-paced tap puzzle experience where timing and strategy combine for addictive gameplay.</p>
+                <div class="game-tags">
+                    <span class="game-tag">Unity</span>
+                    <span class="game-tag">Arcade</span>
+                    <span class="game-tag">Casual</span>
+                    <span class="game-tag">Mobile</span>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.kolpoverse.goodstapjam" target="_blank" class="game-link">Get on Play Store</a>
+            </div>
+
+            <div class="game-card reveal reveal-delay-3">
+                <img src="images/apps/colorslidejam.png" alt="Color Slide Jam" class="game-icon-img">
+                <h3>Color Slide Jam</h3>
+                <p>A colorful sliding puzzle game where you match and align pieces to complete vibrant challenges.</p>
+                <div class="game-tags">
+                    <span class="game-tag">Unity</span>
+                    <span class="game-tag">Puzzle</span>
+                    <span class="game-tag">Casual</span>
+                    <span class="game-tag">Color</span>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.kolpoverse.colorslidejam" target="_blank" class="game-link">Get on Play Store</a>
+            </div>
+
+            <div class="game-card reveal reveal-delay-4">
+                <img src="images/apps/restaurantjam.png" alt="Restaurant Jam" class="game-icon-img">
+                <h3>Restaurant Jam</h3>
+                <p>A time-management cooking game where you serve customers and build your restaurant empire.</p>
+                <div class="game-tags">
+                    <span class="game-tag">Unity</span>
+                    <span class="game-tag">Simulation</span>
+                    <span class="game-tag">Cooking</span>
+                    <span class="game-tag">Casual</span>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.kolpoverse.restaurantjam" target="_blank" class="game-link">Get on Play Store</a>
+            </div>
+
+            <div class="game-card reveal reveal-delay-5">
+                <img src="images/apps/redrailredemption.png" alt="Red Rail Redemption" class="game-icon-img">
+                <h3>Red Rail Redemption</h3>
+                <p>An action-packed adventure set on the rails, combining strategy and fast-paced gameplay.</p>
+                <div class="game-tags">
+                    <span class="game-tag">Unity</span>
+                    <span class="game-tag">Action</span>
+                    <span class="game-tag">Adventure</span>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.kolpoverse.redrailredemption" target="_blank" class="game-link">Get on Play Store</a>
+            </div>
+
+            <div class="game-card reveal reveal-delay-1">
+                <img src="images/apps/chainsquad.png" alt="Chain Squad" class="game-icon-img">
+                <h3>Chain Squad</h3>
+                <p>A strategic action game where you build squads and chain attacks for maximum impact.</p>
+                <div class="game-tags">
+                    <span class="game-tag">Unity</span>
+                    <span class="game-tag">Strategy</span>
+                    <span class="game-tag">Action</span>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.kolpoverse.chainsquad" target="_blank" class="game-link">Get on Play Store</a>
+            </div>
+
+            <div class="game-card reveal reveal-delay-2">
+                <img src="images/apps/armoredassembly.png" alt="Armoured Assembly" class="game-icon-img">
+                <h3>Armoured Assembly</h3>
+                <p>Build and customize powerful machines in this engaging assembly and combat experience.</p>
+                <div class="game-tags">
+                    <span class="game-tag">Unity</span>
+                    <span class="game-tag">Simulation</span>
+                    <span class="game-tag">Action</span>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.kolpoverse.armoredassembly" target="_blank" class="game-link">Get on Play Store</a>
+            </div>
+
+            <div class="game-card reveal reveal-delay-3">
+                <img src="images/apps/actiontower.png" alt="Action Tower" class="game-icon-img">
+                <h3>Action Tower</h3>
+                <p>Climb, battle, and conquer towers in this fast-paced action game full of challenges.</p>
+                <div class="game-tags">
+                    <span class="game-tag">Unity</span>
+                    <span class="game-tag">Action</span>
+                    <span class="game-tag">Arcade</span>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.kolpoverse.actiontower" target="_blank" class="game-link">Get on Play Store</a>
+            </div>
+
+            <div class="game-card reveal reveal-delay-4">
+                <img src="images/apps/chaossoldier.png" alt="Chaos Soldier" class="game-icon-img">
+                <h3>Chaos Soldier</h3>
+                <p>Enter chaotic battles and defeat enemies in this intense action shooter experience.</p>
+                <div class="game-tags">
+                    <span class="game-tag">Unity</span>
+                    <span class="game-tag">Shooter</span>
+                    <span class="game-tag">Action</span>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.kolpoverse.chaossoldier" target="_blank" class="game-link">Get on Play Store</a>
+            </div>
+
+            <div class="game-card reveal reveal-delay-5">
+                <img src="images/apps/luggageunblockfrenzy.png" alt="Luggage Unblock Frenzy" class="game-icon-img">
+                <h3>Luggage Unblock Frenzy</h3>
+                <p>A clever unblock puzzle game where you rearrange luggage to clear the path.</p>
+                <div class="game-tags">
+                    <span class="game-tag">Unity</span>
+                    <span class="game-tag">Puzzle</span>
+                    <span class="game-tag">Casual</span>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.kolpoverse.luggageunblockfrenzy" target="_blank" class="game-link">Get on Play Store</a>
+            </div>
+
+            <div class="game-card reveal reveal-delay-1">
+                <img src="images/apps/jellybuildjam.png" alt="Jelly Build Jam" class="game-icon-img">
+                <h3>Jelly Build Jam</h3>
+                <p>A creative building puzzle game with soft physics and satisfying jelly mechanics.</p>
+                <div class="game-tags">
+                    <span class="game-tag">Unity</span>
+                    <span class="game-tag">Physics</span>
+                    <span class="game-tag">Casual</span>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.kolpoverse.jellybuildjam" target="_blank" class="game-link">Get on Play Store</a>
+            </div>
+
+            <div class="game-card reveal reveal-delay-2">
+                <img src="images/apps/trayslidemerge.png" alt="Tray Slide Merge" class="game-icon-img">
+                <h3>Tray Slide Merge</h3>
+                <p>A satisfying merge and slide puzzle game combining strategy and relaxing gameplay.</p>
+                <div class="game-tags">
+                    <span class="game-tag">Unity</span>
+                    <span class="game-tag">Merge</span>
+                    <span class="game-tag">Puzzle</span>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.kolpoverse.trayslidemerge" target="_blank" class="game-link">Get on Play Store</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Showcase 1 -->
+    <section class="video-showcase" id="video1">
+        <div class="video-container">
+            <div class="video-layout reveal">
+                <div class="video-wrapper">
+                    <div class="video-placeholder" onclick="loadVideo(this, '7DnxHbzCLWI')" data-video-id="7DnxHbzCLWI">
+                        <div class="play-button"></div>
+                        <div class="video-placeholder-text">
+                            <strong>Click to Load Video</strong>                            
+                        </div>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <div class="video-number">01</div>
+                    <div class="video-tags">
+                        <span class="video-tag">Unity</span>
+                        <span class="video-tag">3D</span>
+                        <span class="video-tag">Showcase</span>
+                    </div>
+                    <h3>Game Showcase</h3>
+                    <p>Some of my works from 2024 to 2025 showcasing 3D game development expertise.</p>
+                    <div class="video-stats">
+                        <div class="video-stat"><span class="video-stat-value">Unity</span><span class="video-stat-label">Engine</span></div>
+                        <div class="video-stat"><span class="video-stat-value">3D</span><span class="video-stat-label">Genre</span></div>
+                    </div>
+                    <div class="video-links">
+                        <a href="https://www.youtube.com/watch?v=7DnxHbzCLWI" target="_blank" class="video-link primary">▶ Watch on YouTube</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Showcase 2 -->
+    <section class="video-showcase" id="video2">
+        <div class="video-container">
+            <div class="video-layout reverse reveal">
+                <div class="video-wrapper">
+                    <div class="video-placeholder" onclick="loadVideo(this, '6iaRr3DIsJE')" data-video-id="6iaRr3DIsJE">
+                        <div class="play-button"></div>
+                        <div class="video-placeholder-text">
+                            <strong>Click to Load Video</strong>
+                            Replace with your YouTube embed code
+                        </div>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <div class="video-number">02</div>
+                    <div class="video-tags">
+                        <span class="video-tag">Unity</span>
+                        <span class="video-tag">3D</span>
+                        <span class="video-tag">Showcase</span>
+                    </div>
+                    <h3>Game Showcase</h3>
+                    <p>Some of my works from 2023 to 2024 showcasing 3D game development expertise.</p>
+                    <div class="video-stats">
+                        <div class="video-stat"><span class="video-stat-value">Unity</span><span class="video-stat-label">Engine</span></div>
+                        <div class="video-stat"><span class="video-stat-value">3D</span><span class="video-stat-label">Genre</span></div>
+                        <div class="video-stat"><span class="video-stat-value">Live</span><span class="video-stat-label">Status</span></div>
+                    </div>
+                    <div class="video-links">
+                        <a href="https://www.youtube.com/watch?v=6iaRr3DIsJE" target="_blank" class="video-link primary">▶ Watch on YouTube</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Showcase 3 -->
+    <section class="video-showcase" id="video3">
+        <div class="video-container">
+            <div class="video-layout reveal">
+                <div class="video-wrapper">
+                    <div class="video-placeholder" onclick="loadVideo(this, '6gzO7aGJLsY')" data-video-id="6gzO7aGJLsY">
+                        <div class="play-button"></div>
+                        <div class="video-placeholder-text">
+                            <strong>Click to Load Video</strong>
+                            Replace with your YouTube embed code
+                        </div>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <div class="video-number">03</div>
+                    <div class="video-tags">
+                        <span class="video-tag">Unity</span>
+                        <span class="video-tag">3D</span>
+                        <span class="video-tag">Showcase</span>
+                    </div>
+                    <h3>Game Showcase</h3>
+                    <p>Some of my works from 2022 to 2023 showcasing 3D game development expertise.</p>
+                    <div class="video-stats">
+                        <div class="video-stat"><span class="video-stat-value">Unity</span><span class="video-stat-label">Engine</span></div>
+                        <div class="video-stat"><span class="video-stat-value">3D</span><span class="video-stat-label">Genre</span></div>
+                    </div>
+                    <div class="video-links">
+                        <a href="https://www.youtube.com/watch?v=6gzO7aGJLsY" target="_blank" class="video-link primary">▶ Watch on YouTube</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-header reveal">
+            <h2>GET IN TOUCH</h2>
+            <p>Email me or DM me on LinkedIn. I'm open to work!</p>
+        </div>
+        <div class="contact-container">
+            <div class="quick-actions reveal">
+                <a href="./cv/Riasat_Azim_Khan_CV.pdf" download="Riasat_Azim_Khan_CV.pdf" class="action-btn btn-cv">
+                    <span class="action-icon">📄</span>
+                    <div class="action-text">
+                        <span class="action-title">Download CV</span>
+                        <span class="action-sub">Get my full resume (PDF)</span>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/in/riasatazimkhan2274" target="_blank" rel="noopener noreferrer" class="action-btn btn-linkedin">
+                    <img src="images/LinkedInLogo.png" alt="Prank Master 3D" class="game-icon-img">
+                    <div class="action-text">
+                        <span class="action-title">LinkedIn</span>
+                        <span class="action-sub">Connect professionally</span>
+                    </div>
+                </a>
+                <a href="https://github.com/riasat2274" target="_blank" rel="noopener noreferrer" class="action-btn btn-github">
+                    <img src="images/GitHubLogo.png" alt="Prank Master 3D" class="game-icon-img">
+                    <div class="action-text">
+                        <span class="action-title">GitHub</span>
+                        <span class="action-sub">View my code & projects</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="contact-divider reveal">
+                <span>or send a message</span>
+            </div>
+
+            <form class="contact-form reveal" onsubmit="event.preventDefault(); alert('Thanks for reaching out! I will get back to you soon.');">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder=" " required>
+                    <label for="name">Your Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder=" " required>
+                    <label for="email">Your Email</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="subject" placeholder=" " required>
+                    <label for="subject">Subject</label>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" placeholder=" " required></textarea>
+                    <label for="message">Your Message</label>
+                </div>
+                <button type="submit" class="btn btn-primary" style="justify-self: center;">Send Message</button>
+            </form>
+
+            <div class="contact-info reveal" style="text-align: center; margin-top: 2rem; color: var(--text-muted);">
+                <p>📧 riasat2274@gmail.com</p>
+                <p>📍 Dhaka, Bangladesh</p>
+                <p style="color: var(--primary); font-weight: 600; margin-top: 0.5rem;">✅ Open to Work</p>
+            </div>
+
+            <div class="contact-social reveal">
+                <a href="https://github.com/riasat2274" class="social-link" title="GitHub">GH</a>
+                <a href="https://www.linkedin.com/in/riasatazimkhan2274" class="social-link" title="LinkedIn">LI</a>
+                <a href="#" class="social-link" title="Twitter">TW</a>
+                <a href="#" class="social-link" title="itch.io">IO</a>
+                <a href="#" class="social-link" title="YouTube">YT</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 <span>Riasat Azim Khan</span>. Crafted with code & passion.</p>
+    </footer>
+
+    <script>
+        // Particle System
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: null, y: null };
+
+        function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5; this.speedX = (Math.random() - 0.5) * 0.5; this.speedY = (Math.random() - 0.5) * 0.5;
+                this.color = Math.random() > 0.5 ? 'rgba(0, 240, 255,' : 'rgba(255, 42, 109,'; this.opacity = Math.random() * 0.5 + 0.2;
+            }
+            update() {
+                this.x += this.speedX; this.y += this.speedY;
+                if (mouse.x != null) {
+                    const dx = mouse.x - this.x; const dy = mouse.y - this.y; const distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < 150) { const force = (150 - distance) / 150; this.x -= dx * force * 0.02; this.y -= dy * force * 0.02; }
+                }
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+            draw() { ctx.fillStyle = this.color + this.opacity + ')'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
+        }
+
+        function initParticles() {
+            particles = []; const particleCount = Math.min(100, (canvas.width * canvas.height) / 10000);
+            for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+        }
+        initParticles();
+
+        function connectParticles() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x; const dy = particles[i].y - particles[j].y; const distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < 120) { ctx.strokeStyle = `rgba(0, 240, 255, ${0.15 * (1 - distance / 120)})`; ctx.lineWidth = 0.5; ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke(); }
+                }
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => { p.update(); p.draw(); });
+            connectParticles();
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        canvas.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
+        canvas.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
+
+        // Scroll Animations
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); }); }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Skill bar animation
+        const skillBars = document.querySelectorAll('.skill-bar-fill');
+        const skillsObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.style.width = entry.target.getAttribute('data-width') + '%'; skillsObserver.unobserve(entry.target); } }); }, { threshold: 0.3 });
+        skillBars.forEach(bar => skillsObserver.observe(bar));
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => { const navbar = document.getElementById('navbar'); if (window.scrollY > 50) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled'); });
+
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        mobileMenuBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰'; });
+        document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', () => { navLinks.classList.remove('active'); mobileMenuBtn.textContent = '☰'; }); });
+
+        // Animated counters
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const statsObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { const target = parseInt(entry.target.getAttribute('data-target')); let current = 0; const increment = target / 50; const timer = setInterval(() => { current += increment; if (current >= target) { entry.target.textContent = target + '+'; clearInterval(timer); } else entry.target.textContent = Math.floor(current); }, 30); statsObserver.unobserve(entry.target); } }); }, { threshold: 0.5 });
+        statNumbers.forEach(stat => statsObserver.observe(stat));
+
+        // YouTube video lazy loader
+        /*function loadVideo(placeholder, videoId) {
+            const wrapper = placeholder.parentElement; placeholder.style.display = 'none';
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&autoplay=1`;
+            iframe.title = 'Game Video'; iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'; iframe.allowFullscreen = true;
+            iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:12px;';
+            wrapper.appendChild(iframe);
+        }*/
+        window.loadVideo = function(placeholder, videoId) {
+            // Prevent double-loading
+            if (placeholder.getAttribute('data-loaded') === 'true') return;
+            placeholder.setAttribute('data-loaded', 'true');
+
+            const wrapper = placeholder.parentElement;
+
+            // Create iframe
+            const iframe = document.createElement('iframe');
+            iframe.src = 'https://www.youtube.com/embed/' + videoId + '?rel=0&modestbranding=1&autoplay=1&enablejsapi=1';
+            iframe.title = 'Game Video';
+            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+            iframe.setAttribute('allowfullscreen', '');
+            iframe.setAttribute('loading', 'lazy');
+            iframe.style.position = 'absolute';
+            iframe.style.top = '0';
+            iframe.style.left = '0';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.border = 'none';
+            iframe.style.borderRadius = '12px';
+            iframe.style.zIndex = '10';
+
+            // Remove placeholder and add iframe
+            placeholder.style.opacity = '0';
+            placeholder.style.pointerEvents = 'none';
+            wrapper.appendChild(iframe);
+
+            // Fade out placeholder after iframe loads
+            setTimeout(function() {
+                placeholder.style.display = 'none';
+            }, 500);
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function(e) { e.preventDefault(); const target = document.querySelector(this.getAttribute('href')); if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }); });
+    </script>
 </body>
 </html>
