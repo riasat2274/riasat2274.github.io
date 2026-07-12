@@ -30,11 +30,11 @@ I have contributed to **multiple published hyper-casual titles** with millions o
 
 ## 🚀 Featured Projects
 
-### 🔫 [Prank Master 3D](https://play.google.com/store/apps/details?id=com.alphapotato.prankster&hl=en&gl=US) (Lion Studios, 50M+)  
+### 🔫 [Prank Master 3D](https://play.google.com/store/apps/details?id=com.alphapotato.prankster&hl=en&gl=US) (Lion Studios, 80M+)  
 A choice-based puzzle game where the player sets up funny pranks.  
 **My Role:** Core gameplay, VFX, shaders  
 
-### 🛒 [Pawn Shop Master](https://play.google.com/store/apps/details?id=com.alphapotato.pawnshopmaster&hl=en&gl=US) (Lion Studios, 50M+) 
+### 🛒 [Pawn Shop Master](https://play.google.com/store/apps/details?id=com.alphapotato.pawnshopmaster&hl=en&gl=US) (Lion Studios, 20M+) 
 A shop management simulation game.  
 **My Role:** Core gameplay loop, NPC AI, effects, lighting  
 
